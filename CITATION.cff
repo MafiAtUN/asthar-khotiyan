@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this data compilation or essay, please cite it as below."
+title: "আস্থার খতিয়ান · The Ledger of Trust: a 30-year annotated data essay on Bangladesh's banking sector"
+abstract: >-
+  A scroll-driven, annotated 30-year time series of Bangladesh's banking-sector
+  non-performing loan (NPL) ratio, with capital-adequacy (CRAR) and IMF
+  distressed-asset overlays, cross-country comparisons, and an event ledger.
+  Figures are compiled from public sources for an independent data essay.
+type: dataset
+authors:
+  - family-names: Islam
+    given-names: Mafizul
+license: CC-BY-4.0
+repository-code: "https://github.com/MafiAtUN/asthar-khotiyan"
+url: "https://mafiatun.github.io/asthar-khotiyan/"
+version: "1.0.0"
+date-released: "2026-07-05"
+keywords:
+  - Bangladesh
+  - banking
+  - non-performing loans
+  - financial stability
+  - data journalism
+  - dataviz
