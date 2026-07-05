@@ -72,6 +72,11 @@ function render(){
   E('line',{x1:xs(QPEAK.x),y1:ys(30.6)-4,x2:xs(QPEAK.x),y2:ys(QPEAK.y)+7,class:'peak-stem'},svg);
   E('circle',{cx:xs(QPEAK.x),cy:ys(QPEAK.y),r:5.5,fill:'none',stroke:'#E8434F','stroke-width':2.6},svg);
   E('text',{x:xs(QPEAK.x)-12,y:ys(QPEAK.y)-12,'text-anchor':'end',class:'callout'},svg).textContent=tx(QPEAK.label);
+  /* Mar 2026 quarterly marker (hollow), same treatment as the Sep 2025 QPEAK:
+     the story continues past the Dec 2025 year-end, rising again to 32.3%. */
+  E('line',{x1:xs(2025),y1:ys(30.6),x2:xs(Q2026.x),y2:ys(Q2026.y),class:'peak-stem'},svg);
+  E('circle',{cx:xs(Q2026.x),cy:ys(Q2026.y),r:5.5,fill:'none',stroke:'#E8434F','stroke-width':2.6},svg);
+  E('text',{x:xs(Q2026.x),y:ys(Q2026.y)-13,'text-anchor':'end',class:'callout'},svg).textContent=tx(Q2026.label);
   const c1=E('text',{x:xs(1999),y:ys(41.1)-46,'text-anchor':'middle',class:'callout'},svg);
   E('tspan',{x:xs(1999),class:'big'},c1).textContent=num('41.1%');
   E('tspan',{x:xs(1999),dy:15},c1).textContent=tx('1999 peak');
