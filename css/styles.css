@@ -440,7 +440,7 @@ footer p{font-family:'Sometype Mono',monospace;font-size:11.5px;color:var(--dim)
 }
 
 /* ==============================================================
-   BANGLA MODE — swap the Latin display/mono faces for a
+   BANGLA MODE, swap the Latin display/mono faces for a
    Bengali-capable face so bn text renders cleanly everywhere.
    ============================================================== */
 [data-lang="bn"] .sec-bn{display:none}
@@ -471,5 +471,83 @@ footer p{font-family:'Sometype Mono',monospace;font-size:11.5px;color:var(--dim)
 [data-lang="bn"] .axis-lab-y,[data-lang="bn"] .era-lab,[data-lang="bn"] .callout,
 [data-lang="bn"] .callout .big,[data-lang="bn"] .series-lab,[data-lang="bn"] .s-axis,
 [data-lang="bn"] .s-flag{
+  font-family:'Hind Siliguri',system-ui,sans-serif;
+}
+
+/* ==============================================================
+   PEOPLES-EDITION COMPONENTS (danger map, receipt, family share,
+   converter, share bar). Moved here from sections.html.
+   ============================================================== */
+/* Danger map punchline */
+.dm-punch{font-family:'Tiro Bangla','Bricolage Grotesque',serif;font-size:clamp(19px,2.4vw,26px);
+  color:var(--cream);text-align:center;padding:16px 6px 8px;border-top:1px solid var(--hair-2);margin-top:10px}
+
+/* Receipt (paper exhibit, torn edge) */
+.rcp{background:linear-gradient(180deg,var(--paper),var(--paper-2));color:var(--paper-ink);
+  max-width:560px;margin:0 auto;padding:30px 30px 24px;border-radius:3px;position:relative;
+  box-shadow:0 24px 44px -22px rgba(0,0,0,.85);font-family:'Sometype Mono',monospace;
+  -webkit-mask:linear-gradient(#000 0 0) padding-box;mask:linear-gradient(#000 0 0) padding-box;}
+.rcp::after{content:"";position:absolute;left:0;right:0;bottom:-12px;height:12px;
+  background:radial-gradient(circle at 8px -4px, transparent 8px, var(--paper-2) 8.5px);
+  background-size:16px 12px;background-repeat:repeat-x;}
+.rcp-head{font-family:'Tiro Bangla','Bricolage Grotesque',serif;font-size:26px;text-align:center}
+.rcp-meta{font-size:11px;color:var(--paper-dim);text-align:center;margin:6px 0 4px;line-height:1.6}
+.rcp-rule{border-top:2px dashed #B9AE8E;margin:12px 0}
+.rcp-row{display:flex;justify-content:space-between;gap:16px;font-size:14px;padding:7px 0;line-height:1.5}
+.rcp-row b{white-space:nowrap;color:var(--red-deep)}
+.rcp-routes{font-size:11.5px;color:var(--paper-dim);line-height:1.7;margin-top:4px}
+.rcp-src{font-size:10.5px;color:var(--paper-dim);margin-top:10px;line-height:1.6}
+.rcp-disc{font-family:'Tiro Bangla',serif;font-size:13px;margin-top:10px;text-align:center;color:#5C6A5C}
+
+/* Family share */
+.fam-row{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 14px}
+.fam-p{background:none;border:1px solid var(--hair);border-radius:8px;padding:7px 8px 3px;
+  color:var(--dim);cursor:pointer;transition:all .15s ease}
+.fam-p.on{color:var(--gold);border-color:var(--gold)}
+.fam-out{display:flex;flex-direction:column;gap:4px;margin:6px 0 14px}
+.fam-num{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;
+  font-size:clamp(38px,5vw,56px);color:var(--red);font-variant-numeric:tabular-nums}
+.fam-lab{font-size:15px;color:var(--cream-2)}
+
+/* Converter */
+.cv-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
+.cv-tab{font-family:'Tiro Bangla','Sometype Mono',serif;font-size:13.5px;padding:8px 14px;border-radius:999px;
+  border:1px solid var(--hair);background:rgba(13,43,31,.6);color:var(--cream-2);cursor:pointer}
+.cv-tab.on{background:var(--gold);border-color:var(--gold);color:var(--field-2);font-weight:600}
+.cv-out{margin:4px 0 12px}
+.cv-num{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;
+  font-size:clamp(44px,6vw,66px);color:var(--gold);font-variant-numeric:tabular-nums}
+.cv-lab{display:block;font-size:15px;color:var(--cream-2);margin-top:4px;line-height:1.6}
+.cv-army{display:flex;flex-wrap:wrap;gap:4px;margin:10px 0}
+.cv-i{width:10px;height:14px;border-radius:2px;background:var(--gold);opacity:.8}
+.cv-more{font-family:'Sometype Mono',monospace;font-size:11px;color:var(--gold);align-self:center;margin-left:4px}
+.cv-src{font-family:'Sometype Mono',monospace;font-size:10.5px;color:var(--dim);line-height:1.6;margin-bottom:10px}
+
+/* Shared share button */
+.pe-share{font-family:'Sometype Mono',monospace;font-size:12px;padding:9px 16px;border-radius:999px;
+  border:1px solid var(--gold);background:none;color:var(--gold);cursor:pointer;transition:all .15s ease}
+.pe-share:hover{background:var(--gold);color:var(--field-2)}
+
+/* Share bar */
+.sharebar{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:50;
+  display:flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;
+  background:rgba(10,35,24,.92);border:1px solid var(--hair);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  box-shadow:0 14px 30px -14px rgba(0,0,0,.8);max-width:96vw;overflow-x:auto;
+  transition:opacity .3s ease,transform .3s ease}
+.sb-lab{font-family:'Tiro Bangla',serif;font-size:14px;color:var(--gold);white-space:nowrap}
+.sb-btn{font-family:'Sometype Mono',monospace;font-size:11.5px;padding:7px 12px;border-radius:999px;
+  border:1px solid var(--hair);background:none;color:var(--cream-2);cursor:pointer;
+  text-decoration:none;white-space:nowrap;transition:all .15s ease}
+.sb-btn:hover{border-color:var(--gold);color:var(--gold)}
+/* Hide the fixed share bar while the scroll-story sticky pane owns the screen (Part 4.6) */
+.sharebar.sb-hidden{opacity:0;pointer-events:none;transform:translateX(-50%) translateY(24px)}
+@media (max-width:640px){.sharebar{bottom:10px;padding:8px 10px}.sb-lab{display:none}}
+
+/* Bangla text inside the new SVG scatter and personal widgets */
+[data-lang="bn"] .dm-quad,[data-lang="bn"] .dm-name,[data-lang="bn"] .dm-ax-x,
+[data-lang="bn"] .dm-ax-y,[data-lang="bn"] .dm-zero,[data-lang="bn"] .dm-punch,
+[data-lang="bn"] .fam-lab,[data-lang="bn"] .cv-lab,[data-lang="bn"] .cv-tab,
+[data-lang="bn"] .rcp-head,[data-lang="bn"] .rcp-row,[data-lang="bn"] .rcp-routes,
+[data-lang="bn"] .rcp-disc,[data-lang="bn"] .sb-lab,[data-lang="bn"] .pe-share{
   font-family:'Hind Siliguri',system-ui,sans-serif;
 }
