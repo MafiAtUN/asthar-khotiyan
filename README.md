@@ -19,10 +19,13 @@ approachable for readers new to banking data. Every external link opens in a new
 
 ## Screenshot
 
-![The Ledger of Trust — the explore chart with all overlay layers active](assets/og-cover.png)
+![The Ledger of Trust — 35.7%, the highest bad-loan ratio of any country on Earth](assets/og-cover.png)
 
-> _Screenshot placeholder — replace `assets/og-cover.png` with a capture of the
-> live page (this file also serves as the Open Graph / social-share image)._
+> _`assets/og-cover.png` is the Open Graph / social-share image, generated from
+> [`social/share-kit.html`](social/share-kit.html). That file also produces the
+> seven-card Instagram/LinkedIn carousel in [`social/`](social/); see
+> [`social/README.md`](social/README.md) for the images, captions, and how to
+> re-render them._
 
 ## Live site
 

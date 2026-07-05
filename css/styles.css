@@ -269,6 +269,7 @@ h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(
 .entry .e-tag.glob{border-color:#5F7BA6;color:#3d5578}
 .entry .e-tag.reg{border-color:#3B7A55;color:#1E5B3F}
 .entry .e-tag.sec{border-color:var(--red-deep);color:var(--red-deep)}
+.entry .e-tag.human{border-color:var(--red-deep);background:rgba(196,33,47,.09);color:var(--red-deep);font-weight:600}
 .entry h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:17.5px;line-height:1.25;margin-bottom:7px}
 .entry p{font-size:14.5px;color:#41503F;line-height:1.62;font-weight:400}
 
@@ -398,6 +399,46 @@ footer p{font-family:'Sometype Mono',monospace;font-size:11.5px;color:var(--dim)
   .lang-toggle{top:10px;right:10px;padding:7px 12px;font-size:11px}
 }
 
+/* ---------- Masthead shock hook (the 3-second grabber) ---------- */
+.shock{
+  display:flex;align-items:center;gap:18px;max-width:780px;margin-bottom:30px;
+  padding:15px 20px;border:1px solid var(--red-deep);border-left:4px solid var(--red);
+  border-radius:9px;background:linear-gradient(90deg,rgba(196,33,47,.18),rgba(196,33,47,.02));
+}
+.shock-num{
+  font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-variant-numeric:tabular-nums;
+  font-size:clamp(30px,4.4vw,48px);line-height:1;color:var(--red);flex:none;
+}
+.shock-txt{font-size:15px;color:var(--cream);line-height:1.5}
+.shock-txt b{color:var(--gold);font-weight:600}
+
+/* ---------- Scale strip (make the number tangible) ---------- */
+#scale,#you{margin-top:74px}
+.scale-note{display:block;margin-top:8px;font-family:'Sometype Mono',monospace;font-size:11px;color:var(--dim);letter-spacing:.02em}
+.scale-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
+.scale-card{border:1px solid var(--hair);border-radius:8px;padding:28px 22px;background:rgba(13,43,31,.45)}
+.scale-big{
+  font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-variant-numeric:tabular-nums;
+  font-size:clamp(40px,5vw,62px);line-height:1;color:var(--red);
+}
+.scale-lab{margin-top:14px;font-size:14.5px;color:var(--cream-2);line-height:1.55}
+.scale-lab b{color:var(--cream);font-weight:600}
+
+/* ---------- Reader-stakes block (what this means for you) ---------- */
+.you-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+.you-card{border:1px solid var(--hair);border-radius:8px;padding:26px 24px;background:rgba(13,43,31,.4)}
+.you-q{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:19px;color:var(--gold);margin-bottom:11px;line-height:1.2}
+.you-card p{font-size:15px;color:var(--cream-2);line-height:1.66;font-weight:300}
+.you-card p b{color:var(--cream);font-weight:500}
+
+@media (max-width:900px){
+  .scale-grid{grid-template-columns:repeat(2,1fr)}
+  .you-grid{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .shock{flex-direction:column;align-items:flex-start;gap:8px}
+}
+
 /* ==============================================================
    BANGLA MODE — swap the Latin display/mono faces for a
    Bengali-capable face so bn text renders cleanly everywhere.
@@ -413,13 +454,15 @@ footer p{font-family:'Sometype Mono',monospace;font-size:11.5px;color:var(--dim)
 [data-lang="bn"] .panel h4 .now,[data-lang="bn"] .comp-legend,[data-lang="bn"] footer p,
 [data-lang="bn"] .tip,[data-lang="bn"] .primer-kicker,[data-lang="bn"] .primer-cue,
 [data-lang="bn"] .term-chip b,[data-lang="bn"] .storybox-tag,[data-lang="bn"] .glossary h3,
+[data-lang="bn"] .scale-note,[data-lang="bn"] .shock-txt,
 [data-lang="bn"] .ref-group h3,[data-lang="bn"] .ref-group a,[data-lang="bn"] .lang-toggle{
   font-family:'Hind Siliguri',system-ui,sans-serif;
 }
 [data-lang="bn"] h1,[data-lang="bn"] h1 em,[data-lang="bn"] h2,[data-lang="bn"] h3,
 [data-lang="bn"] .story-num,[data-lang="bn"] .fig .num,[data-lang="bn"] .chart-title,
 [data-lang="bn"] .comp-card h3,[data-lang="bn"] .panel h4,[data-lang="bn"] .entry .e-year,
-[data-lang="bn"] .entry h3,[data-lang="bn"] .tip .t-val,[data-lang="bn"] .primer-h{
+[data-lang="bn"] .entry h3,[data-lang="bn"] .tip .t-val,[data-lang="bn"] .primer-h,
+[data-lang="bn"] .shock-num,[data-lang="bn"] .scale-big,[data-lang="bn"] .you-q{
   font-family:'Hind Siliguri',system-ui,sans-serif;letter-spacing:0;
 }
 /* SVG text nodes */

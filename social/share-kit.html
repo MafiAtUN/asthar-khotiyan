@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Share kit · The Ledger of Trust</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&family=Sometype+Mono:wght@400;500;600&family=Tiro+Bangla&family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --field:#0D2B1F; --field-2:#0A2318; --field-3:#133A29;
+    --hair:#25503C; --hair-2:#1A3C2C;
+    --cream:#F0E8D2; --cream-2:#CBD3BC; --dim:#8FA491;
+    --gold:#E2B33C; --gold-2:#C9A24B; --red:#E8434F; --red-deep:#C4212F; --blue:#8FB6E8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#05130D;color:var(--cream);font-family:'Bricolage Grotesque',system-ui,sans-serif;padding:40px;display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start}
+  .board{display:flex;flex-direction:column;gap:12px}
+  .board .cap{font-family:'Sometype Mono',monospace;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--dim)}
+
+  /* ---- shared card surface ---- */
+  .card{
+    position:relative;overflow:hidden;color:var(--cream);
+    background:
+      radial-gradient(1100px 650px at 78% -12%, #17422F 0%, transparent 58%),
+      radial-gradient(820px 560px at -12% 34%, #0F3323 0%, transparent 54%),
+      var(--field);
+    border:1px solid var(--hair);
+  }
+  .card .bn-ghost{
+    position:absolute;font-family:'Tiro Bangla',serif;color:#0F4A32;opacity:.5;
+    white-space:nowrap;pointer-events:none;user-select:none;z-index:0;
+  }
+  .card .inner{position:relative;z-index:1;height:100%;display:flex;flex-direction:column}
+  .disc{width:16px;height:16px;border-radius:50%;background:var(--red);box-shadow:0 0 20px rgba(232,67,79,.6);flex:none}
+  .kick{font-family:'Sometype Mono',monospace;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:14px}
+  .brandline{font-family:'Sometype Mono',monospace;color:var(--dim);letter-spacing:.06em}
+  .brandline b{color:var(--cream-2);font-weight:500}
+  .bn{font-family:'Tiro Bangla',serif;color:var(--gold-2)}
+  b.g{color:var(--gold);font-weight:600}
+  b.r{color:var(--red);font-weight:600}
+
+  /* ================= OG COVER 1200x630 ================= */
+  #og{width:1200px;height:630px;padding:64px 66px}
+  #og .bn-ghost{font-size:340px;right:-40px;top:-90px;line-height:1}
+  #og .kick{font-size:16px}
+  #og .og-num{font-weight:700;font-size:210px;line-height:.82;color:var(--red);font-variant-numeric:tabular-nums;letter-spacing:-.02em;margin:6px 0 -6px -6px}
+  #og h1{font-weight:600;font-size:56px;line-height:1.02;letter-spacing:-.02em;max-width:16ch}
+  #og h1 em{font-style:normal;color:var(--gold)}
+  #og .og-sub{font-size:22px;color:var(--cream-2);font-weight:300;max-width:44ch;margin-top:16px;line-height:1.4}
+  #og .og-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:22px;border-top:1px solid var(--hair)}
+  #og .og-foot .l{font-family:'Sometype Mono',monospace;font-size:15px;color:var(--dim);letter-spacing:.04em}
+  #og .og-foot .l b{color:var(--cream)}
+  #og .og-foot .bn{font-size:34px}
+
+  /* mini sparkline used on OG + a carousel card */
+  .spark{width:100%;height:100%}
+  .spark .ln{fill:none;stroke:var(--gold);stroke-width:5;stroke-linejoin:round;stroke-linecap:round;filter:drop-shadow(0 0 8px rgba(226,179,60,.4))}
+  .spark .pk{fill:var(--red);stroke:var(--field);stroke-width:4}
+  .spark .lo{fill:var(--gold);stroke:var(--field);stroke-width:3}
+  .spark .plab{font-family:'Sometype Mono',monospace;font-weight:600}
+
+  /* ================= IG CAROUSEL 1080x1080 ================= */
+  .sq{width:1080px;height:1080px;padding:82px 84px}
+  .sq .inner{gap:0}
+  .sq .bn-ghost{font-size:420px;right:-70px;bottom:-140px;line-height:1;opacity:.42}
+  .sq .kick{font-size:21px}
+  .sq .idx{margin-left:auto;font-family:'Sometype Mono',monospace;font-size:19px;color:var(--dim);letter-spacing:.1em}
+  .sq h2{font-weight:600;font-size:82px;line-height:1.0;letter-spacing:-.025em;margin-top:30px}
+  .sq h2 em{font-style:normal;color:var(--gold)}
+  .sq p{font-size:33px;line-height:1.42;color:var(--cream-2);font-weight:300;margin-top:26px;max-width:24ch}
+  .sq p b{color:var(--cream);font-weight:500}
+  .sq .foot{margin-top:auto;display:flex;align-items:center;gap:16px;padding-top:26px;border-top:1px solid var(--hair);font-family:'Sometype Mono',monospace;font-size:19px;color:var(--dim);letter-spacing:.05em}
+  .sq .foot .bn{font-family:'Tiro Bangla',serif;font-size:30px;color:var(--gold-2)}
+  .sq .foot .sw{margin-left:auto;color:var(--gold)}
+  .huge{font-weight:700;font-variant-numeric:tabular-nums;color:var(--red);line-height:.85;letter-spacing:-.02em}
+
+  /* stat rows for the "how big" + bars cards */
+  .statrow{display:flex;align-items:baseline;gap:22px;padding:22px 0;border-bottom:1px solid var(--hair-2)}
+  .statrow .v{font-weight:700;font-size:74px;color:var(--red);font-variant-numeric:tabular-nums;line-height:1;min-width:3.4ch}
+  .statrow .t{font-size:29px;color:var(--cream-2);line-height:1.3;font-weight:300}
+  .statrow .t b{color:var(--cream);font-weight:600}
+
+  .bars{margin-top:30px;display:flex;flex-direction:column;gap:20px}
+  .bar{display:flex;align-items:center;gap:20px}
+  .bar .nm{width:5.6ch;font-family:'Sometype Mono',monospace;font-size:26px;color:var(--cream-2);text-align:right}
+  .bar .track{flex:1;height:46px;background:rgba(0,0,0,.28);border-radius:6px;overflow:hidden}
+  .bar .fill{display:block;height:100%;border-radius:6px;background:var(--gold);box-shadow:0 0 18px rgba(226,179,60,.25)}
+  .bar.bd .fill{background:var(--red);box-shadow:0 0 20px rgba(232,67,79,.4)}
+  .bar .pv{font-family:'Sometype Mono',monospace;font-weight:600;font-size:28px;width:4.2ch}
+  .bar.bd .pv{color:var(--red)}
+
+  /* CRAR "airbag" card */
+  .crar-wrap{margin-top:34px;position:relative;height:360px}
+  .crar-wrap svg{width:100%;height:100%}
+  .crar-wrap .zl{stroke:var(--cream-2);stroke-width:2;stroke-dasharray:8 8;opacity:.5}
+  .crar-wrap .cl{fill:none;stroke:var(--blue);stroke-width:6;stroke-linejoin:round;stroke-linecap:round}
+  .crar-wrap .neg{fill:none;stroke:var(--red);stroke-width:6;stroke-linejoin:round;stroke-linecap:round}
+  .crar-wrap .d{fill:var(--blue);stroke:var(--field);stroke-width:3}
+  .crar-wrap .dn{fill:var(--red);stroke:var(--field);stroke-width:3}
+</style>
+</head>
+<body>
+
+<!-- ============================ OG COVER ============================ -->
+<div class="board">
+  <div class="cap">og-cover · 1200×630 · replaces assets/og-cover.png</div>
+  <div class="card" id="og">
+    <div class="bn-ghost" aria-hidden="true">খ</div>
+    <div class="inner">
+      <div class="kick"><span class="disc"></span>A thirty-year data essay · Bangladesh</div>
+      <div class="og-num">35.7%</div>
+      <h1>The most bad loans <em>on Earth</em></h1>
+      <div class="og-sub">Bangladesh's banks now hold the highest non-performing-loan ratio of any reporting country — higher than nations at war.</div>
+      <div style="position:absolute;right:60px;top:150px;width:430px;height:210px">
+        <svg class="spark" id="ogspark" viewBox="0 0 430 210" preserveAspectRatio="none"></svg>
+      </div>
+      <div class="og-foot">
+        <div class="l"><b>The Ledger of Trust</b> · mafiatun.github.io/asthar-khotiyan</div>
+        <div class="bn">আস্থার খতিয়ান</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================ IG CAROUSEL ============================ -->
+<!-- 1 · HOOK -->
+<div class="board">
+  <div class="cap">ig-1 · hook · 1080×1080</div>
+  <div class="card sq" data-ig="1">
+    <div class="bn-ghost" aria-hidden="true">১</div>
+    <div class="inner">
+      <div class="kick"><span class="disc"></span>Bangladesh<span class="idx">01 / 07</span></div>
+      <div class="huge" style="font-size:300px;margin-top:40px">35.7%</div>
+      <h2 style="font-size:64px;margin-top:20px">The highest bad-loan ratio <em>of any country on Earth.</em></h2>
+      <p>Higher than Ukraine. Higher than Lebanon. Higher than nations at war. Here's how it happened. →</p>
+      <div class="foot"><span class="bn">আস্থার খতিয়ান</span><span class="sw">swipe →</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- 2 · WHAT IS IT -->
+<div class="board">
+  <div class="cap">ig-2 · plain terms · 1080×1080</div>
+  <div class="card sq" data-ig="2">
+    <div class="bn-ghost" aria-hidden="true">২</div>
+    <div class="inner">
+      <div class="kick"><span class="disc"></span>In plain terms<span class="idx">02 / 07</span></div>
+      <h2 style="margin-top:44px">What's a <em>bad loan?</em></h2>
+      <p>A bank takes your deposit and lends it out. A <b>non-performing loan</b> is money it lent that isn't coming back.</p>
+      <p>A ratio of 35.7% means that for every <b>100 taka</b> the banks lent, about <b>36 never returned.</b></p>
+      <div class="foot"><span class="bn">আস্থার খতিয়ান</span><span class="sw">swipe →</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- 3 · THE 30-YEAR ARC -->
+<div class="board">
+  <div class="cap">ig-3 · the arc · 1080×1080</div>
+  <div class="card sq" data-ig="3">
+    <div class="bn-ghost" aria-hidden="true">৩</div>
+    <div class="inner">
+      <div class="kick"><span class="disc"></span>Thirty years<span class="idx">03 / 07</span></div>
+      <h2 style="margin-top:36px">Solved once. <em>Undone since.</em></h2>
+      <div style="margin-top:40px;height:300px">
+        <svg class="spark" id="igspark" viewBox="0 0 900 320" preserveAspectRatio="none"></svg>
+      </div>
+      <p style="margin-top:30px">From a <b>41%</b> peak in 1999, down to <b>6%</b> by 2011 — then a decade of flattered numbers, and a surge to the highest ever recorded.</p>
+      <div class="foot"><span class="bn">আস্থার খতিয়ান</span><span class="sw">swipe →</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- 4 · WORSE THAN WAR -->
+<div class="board">
+  <div class="cap">ig-4 · vs the world · 1080×1080</div>
+  <div class="card sq" data-ig="4">
+    <div class="bn-ghost" aria-hidden="true">৪</div>
+    <div class="inner">
+      <div class="kick"><span class="disc"></span>Where the world stands<span class="idx">04 / 07</span></div>
+      <h2 style="margin-top:32px">Higher than <em>countries at war.</em></h2>
+      <div class="bars">
+        <div class="bar bd"><span class="nm">🇧🇩 BD</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="pv">35.7</span></div>
+        <div class="bar"><span class="nm">🇺🇦 UA</span><span class="track"><span class="fill" style="width:73%"></span></span><span class="pv">26.1</span></div>
+        <div class="bar"><span class="nm">🇱🇧 LB</span><span class="track"><span class="fill" style="width:67%"></span></span><span class="pv">23.8</span></div>
+        <div class="bar"><span class="nm">🇱🇰 LK</span><span class="track"><span class="fill" style="width:35%"></span></span><span class="pv">12.6</span></div>
+        <div class="bar"><span class="nm">🇮🇳 IN</span><span class="track"><span class="fill" style="width:6.4%"></span></span><span class="pv">2.3</span></div>
+      </div>
+      <p style="margin-top:22px;font-size:28px">Gross NPL ratio, % of loans · late 2025</p>
+      <div class="foot"><span class="bn">আস্থার খতিয়ান</span><span class="sw">swipe →</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- 5 · HOW BIG -->
+<div class="board">
+  <div class="cap">ig-5 · how big · 1080×1080</div>
+  <div class="card sq" data-ig="5">
+    <div class="bn-ghost" aria-hidden="true">৫</div>
+    <div class="inner">
+      <div class="kick"><span class="disc"></span>Tk 10.87 lakh crore<span class="idx">05 / 07</span></div>
+      <h2 style="margin-top:30px;font-size:70px">How big is <em>the hole?</em></h2>
+      <div style="margin-top:22px">
+        <div class="statrow"><span class="v">1.4×</span><span class="t">the country's <b>entire national budget</b></span></div>
+        <div class="statrow"><span class="v">36</span><span class="t"><b>Padma Bridges</b></span></div>
+        <div class="statrow"><span class="v" style="font-size:60px">৳62k</span><span class="t">of bad credit for <b>every citizen</b></span></div>
+      </div>
+      <div class="foot"><span class="bn">আস্থার খতিয়ান</span><span class="sw">swipe →</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- 6 · THE AIRBAG -->
+<div class="board">
+  <div class="cap">ig-6 · the airbag · 1080×1080</div>
+  <div class="card sq" data-ig="6">
+    <div class="bn-ghost" aria-hidden="true">৬</div>
+    <div class="inner">
+      <div class="kick"><span class="disc"></span>Capital adequacy<span class="idx">06 / 07</span></div>
+      <h2 style="margin-top:32px">The airbag <em>is gone.</em></h2>
+      <div class="crar-wrap"><svg id="crar" viewBox="0 0 900 360" preserveAspectRatio="none"></svg></div>
+      <p style="margin-top:18px">A bank's capital cushion absorbs losses like an airbag. For the whole sector it has fallen <b>below zero — a first in the country's history.</b></p>
+      <div class="foot"><span class="bn">আস্থার খতিয়ান</span><span class="sw">swipe →</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- 7 · WHOSE MONEY + CTA -->
+<div class="board">
+  <div class="cap">ig-7 · whose money / CTA · 1080×1080</div>
+  <div class="card sq" data-ig="7">
+    <div class="bn-ghost" aria-hidden="true">৭</div>
+    <div class="inner">
+      <div class="kick"><span class="disc"></span>What it means for you<span class="idx">07 / 07</span></div>
+      <h2 style="margin-top:40px;font-size:74px">Every bad loan was once <em>someone's savings.</em></h2>
+      <p>A garment worker's wages. A retiree's pension. A remittance wired home. The loss lands on depositors, taxpayers, and the price of everything you buy.</p>
+      <p style="color:var(--gold);font-weight:400"><b class="g">Read the full 30-year story — English ⇄ বাংলা:</b><br>mafiatun.github.io/asthar-khotiyan</p>
+      <div class="foot"><span class="bn">আস্থার খতিয়ান · The Ledger of Trust</span></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Real NPL series (year, gross NPL %). Dec values; 2025 uses the Sep peak for the spike.
+const SERIES=[[1997,37.5],[1998,40.7],[1999,41.1],[2000,34.9],[2001,31.5],[2002,28.0],[2003,22.1],[2004,17.6],[2005,13.6],[2006,13.2],[2007,13.2],[2008,10.8],[2009,9.2],[2010,7.3],[2011,6.1],[2012,10.0],[2013,8.9],[2014,9.7],[2015,8.8],[2016,9.2],[2017,9.3],[2018,10.3],[2019,9.3],[2020,7.7],[2021,7.9],[2022,8.2],[2023,9.0],[2024,20.2],[2025,35.7]];
+const CRAR=[[2020,11.6],[2023,11.64],[2024.45,10.64],[2024.72,6.86],[2024.98,3.08],[2025.45,4.47],[2025.72,1.56],[2025.98,-2.64]];
+
+function drawSpark(id,w,h,{pad=10,showLabels=true}={}){
+  const svg=document.getElementById(id); if(!svg)return;
+  const xs=SERIES.map(d=>d[0]),ys=SERIES.map(d=>d[1]);
+  const x0=Math.min(...xs),x1=Math.max(...xs),ymax=Math.max(...ys);
+  const X=v=>pad+(v-x0)/(x1-x0)*(w-2*pad);
+  const Y=v=>h-pad-(v/ (ymax*1.08))*(h-2*pad);
+  const d=SERIES.map((p,i)=>(i?'L':'M')+X(p[0]).toFixed(1)+' '+Y(p[1]).toFixed(1)).join(' ');
+  let el=`<path class="ln" d="${d}"/>`;
+  // low point 2011 (6.1) and peak 2025 (35.7)
+  const lo=SERIES.find(p=>p[0]===2011),pk=SERIES[SERIES.length-1];
+  el+=`<circle class="lo" cx="${X(lo[0]).toFixed(1)}" cy="${Y(lo[1]).toFixed(1)}" r="8"/>`;
+  el+=`<circle class="pk" cx="${X(pk[0]).toFixed(1)}" cy="${Y(pk[1]).toFixed(1)}" r="11"/>`;
+  if(showLabels){
+    el+=`<text class="plab" x="${X(1999)}" y="${Y(41.1)-16}" fill="#E2B33C" font-size="26" text-anchor="middle">41%</text>`;
+    el+=`<text class="plab" x="${X(2011)}" y="${Y(6.1)+40}" fill="#E2B33C" font-size="26" text-anchor="middle">6%</text>`;
+    el+=`<text class="plab" x="${X(2025)-6}" y="${Y(35.7)-16}" fill="#E8434F" font-size="30" text-anchor="end">35.7%</text>`;
+  }
+  svg.innerHTML=el;
+}
+function drawCrar(){
+  const svg=document.getElementById('crar'); if(!svg)return;
+  const w=900,h=360,pad=24;
+  const xs=CRAR.map(d=>d[0]);const x0=Math.min(...xs),x1=Math.max(...xs);
+  const ymin=-4,ymax=13;
+  const X=v=>pad+(v-x0)/(x1-x0)*(w-2*pad);
+  const Y=v=>pad+(ymax-v)/(ymax-ymin)*(h-2*pad);
+  const zeroY=Y(0);
+  let el=`<line class="zl" x1="${pad}" y1="${zeroY}" x2="${w-pad}" y2="${zeroY}"/>`;
+  el+=`<text x="${w-pad}" y="${zeroY-10}" fill="#CBD3BC" font-family="'Sometype Mono',monospace" font-size="20" text-anchor="end">0 — cushion exhausted</text>`;
+  // split path at zero-crossing: positive (blue) then negative (red)
+  const posPts=[],allPts=CRAR.map(d=>[X(d[0]),Y(d[1]),d[1]]);
+  const dPos=allPts.filter(p=>p[2]>=0).map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');
+  el+=`<path class="cl" d="${dPos}"/>`;
+  // connector + negative segment (last two points)
+  const last2=allPts.slice(-2);
+  el+=`<path class="neg" d="M${last2[0][0].toFixed(1)} ${last2[0][1].toFixed(1)} L${last2[1][0].toFixed(1)} ${last2[1][1].toFixed(1)}"/>`;
+  allPts.forEach(p=>{ el+=`<circle class="${p[2]<0?'dn':'d'}" cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="7"/>`; });
+  const end=allPts[allPts.length-1];
+  el+=`<text x="${end[0]-6}" y="${end[1]+40}" fill="#E8434F" font-family="'Bricolage Grotesque'" font-weight="700" font-size="34" text-anchor="end">−2.64%</text>`;
+  el+=`<text x="${allPts[0][0]}" y="${allPts[0][1]-18}" fill="#8FB6E8" font-family="'Sometype Mono',monospace" font-size="20">11.6%</text>`;
+  svg.innerHTML=el;
+}
+drawSpark('ogspark',430,210,{pad:16,showLabels:false});
+drawSpark('igspark',900,320,{pad:22,showLabels:true});
+drawCrar();
+</script>
+</body>
+</html>
