@@ -112,7 +112,7 @@
       <div class="kick"><span class="disc"></span>A thirty-year data essay · Bangladesh</div>
       <div class="og-num">35.7%</div>
       <h1>The most bad loans <em>on Earth</em></h1>
-      <div class="og-sub">Bangladesh's banks now hold the highest non-performing-loan ratio of any reporting country — higher than nations at war.</div>
+      <div class="og-sub">Bangladesh's banks now hold the highest non-performing-loan ratio of any reporting country, higher than nations at war.</div>
       <div style="position:absolute;right:60px;top:150px;width:430px;height:210px">
         <svg class="spark" id="ogspark" viewBox="0 0 430 210" preserveAspectRatio="none"></svg>
       </div>
@@ -166,7 +166,7 @@
       <div style="margin-top:40px;height:300px">
         <svg class="spark" id="igspark" viewBox="0 0 900 320" preserveAspectRatio="none"></svg>
       </div>
-      <p style="margin-top:30px">From a <b>41%</b> peak in 1999, down to <b>6%</b> by 2011 — then a decade of flattered numbers, and a surge to the highest ever recorded.</p>
+      <p style="margin-top:30px">From a <b>41%</b> peak in 1999, down to <b>6%</b> by 2011, then a decade of flattered numbers, and a surge to the highest ever recorded.</p>
       <div class="foot"><span class="bn">আস্থার খতিয়ান</span><span class="sw">swipe →</span></div>
     </div>
   </div>
@@ -220,7 +220,7 @@
       <div class="kick"><span class="disc"></span>Capital adequacy<span class="idx">06 / 07</span></div>
       <h2 style="margin-top:32px">The airbag <em>is gone.</em></h2>
       <div class="crar-wrap"><svg id="crar" viewBox="0 0 900 360" preserveAspectRatio="none"></svg></div>
-      <p style="margin-top:18px">A bank's capital cushion absorbs losses like an airbag. For the whole sector it has fallen <b>below zero — a first in the country's history.</b></p>
+      <p style="margin-top:18px">A bank's capital cushion absorbs losses like an airbag. For the whole sector it has fallen <b>below zero, a first in the country's history.</b></p>
       <div class="foot"><span class="bn">আস্থার খতিয়ান</span><span class="sw">swipe →</span></div>
     </div>
   </div>
@@ -235,7 +235,7 @@
       <div class="kick"><span class="disc"></span>What it means for you<span class="idx">07 / 07</span></div>
       <h2 style="margin-top:40px;font-size:74px">Every bad loan was once <em>someone's savings.</em></h2>
       <p>A garment worker's wages. A retiree's pension. A remittance wired home. The loss lands on depositors, taxpayers, and the price of everything you buy.</p>
-      <p style="color:var(--gold);font-weight:400"><b class="g">Read the full 30-year story — English ⇄ বাংলা:</b><br>mafiatun.github.io/asthar-khotiyan</p>
+      <p style="color:var(--gold);font-weight:400"><b class="g">Read the full 30-year story, English ⇄ বাংলা:</b><br>mafiatun.github.io/asthar-khotiyan</p>
       <div class="foot"><span class="bn">আস্থার খতিয়ান · The Ledger of Trust</span></div>
     </div>
   </div>
@@ -274,7 +274,7 @@ function drawCrar(){
   const Y=v=>pad+(ymax-v)/(ymax-ymin)*(h-2*pad);
   const zeroY=Y(0);
   let el=`<line class="zl" x1="${pad}" y1="${zeroY}" x2="${w-pad}" y2="${zeroY}"/>`;
-  el+=`<text x="${w-pad}" y="${zeroY-10}" fill="#CBD3BC" font-family="'Sometype Mono',monospace" font-size="20" text-anchor="end">0 — cushion exhausted</text>`;
+  el+=`<text x="${w-pad}" y="${zeroY-10}" fill="#CBD3BC" font-family="'Sometype Mono',monospace" font-size="20" text-anchor="end">0, cushion exhausted</text>`;
   // split path at zero-crossing: positive (blue) then negative (red)
   const posPts=[],allPts=CRAR.map(d=>[X(d[0]),Y(d[1]),d[1]]);
   const dPos=allPts.filter(p=>p[2]>=0).map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');

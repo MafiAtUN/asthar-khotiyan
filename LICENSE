@@ -27,8 +27,8 @@ NOTE ON DATA
 The MIT License above applies to the source code of this repository (the
 HTML, CSS, and JavaScript that build the site).
 
-The DATA COMPILATION — the assembled time series and event ledger in
-`js/data.js`, compiled from public sources — is released separately under the
+The DATA COMPILATION, the assembled time series and event ledger in
+`js/data.js`, compiled from public sources, is released separately under the
 Creative Commons Attribution 4.0 International License (CC BY 4.0):
 https://creativecommons.org/licenses/by/4.0/
 
