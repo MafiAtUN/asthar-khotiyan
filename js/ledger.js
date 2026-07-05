@@ -67,7 +67,7 @@ function renderRefs(){
   const host=document.getElementById('refs');
   if(!host) return;
   host.innerHTML='';
-  const CATS=[['data','Primary data'],['events','Key events'],['regulators','Comparator regulators']];
+  const CATS=[['data','Primary data'],['events','Key events'],['regulators','Comparator regulators'],['peoples','Danger map & White Paper']];
   CATS.forEach(([cat,enLabel])=>{
     const items=REFERENCES.filter(r=>r.cat===cat);
     if(!items.length) return;

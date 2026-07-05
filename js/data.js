@@ -68,11 +68,11 @@ const EVENTS = [
  {n:18,x:2025.3,era:4,year:"2025",tag:"reg",tagLabel:"Regulatory",title:"The 90-day standard returns; the mountain becomes visible",body:"Loans overdue beyond 90 days are again classified as non-performing, replacing the previous 180-day practice. Combined with inspection-driven reclassification, recognised bad loans surge past Tk 4 lakh crore within a quarter as long-deferred distress is booked at once."},
  {n:19,x:2025.72,era:4,year:"Sep 2025",tag:"sec",tagLabel:"Sector",title:"Highest reported ratio in the world",body:"At 35.7 percent, Bangladesh's NPL ratio exceeds that of every other reporting country, including economies at war. The central bank frames the number as the true picture finally surfacing; sector CRAR falls to 1.56 percent the same quarter."},
  {n:20,x:2025.98,era:4,year:"Dec 2025",tag:"reg",tagLabel:"Regulatory",title:"Rescheduling relief trims the headline; capital turns negative",body:"A relaxed rescheduling policy pulls the ratio back to 30.6 percent, but sector CRAR ends the year at negative 2.64 percent against a Basel III minimum of 10, and broader distressed assets reach 59 percent of all credit."},
- {n:null,x:2026.15,era:4,year:"Feb 2026",tag:"pol",tagLabel:"Political",title:"A national election, and an open question",body:"Bangladesh votes in its first general election since the transition. Whichever direction policy takes, the sector's arithmetic is unforgiving: rebuilding capital, resolving distressed assets, and restoring depositor confidence is the work of years, as the 1999 to 2011 arc showed once before."},
+ {n:null,x:2026.15,era:4,year:"Feb 2026",tag:"pol",tagLabel:"Political",title:"A national election, and an open question",body:"Bangladesh votes in its first general election since the transition. Whichever direction policy takes, the sector's arithmetic is unforgiving: rebuilding capital, resolving distressed assets, and restoring depositor confidence is the work of years, as the 1999 to 2011 arc showed once before. By March 2026 the reported ratio has edged up again to 32.3 percent (Tk 5,88,704 crore): recognition is only the first step."},
  // Human-lens exhibits (ghost cards): the story the line cannot tell on its own.
  // Appended at the end so they render last within their era group; EVENTS_BN must stay index-aligned.
- {n:null,x:2019.6,era:3,year:"2009–24",tag:"human",tagLabel:"Human",title:"Two borrowers, two rulebooks",body:"This is the arithmetic ordinary Bangladeshis felt in their gut. A small trader who missed a few instalments could lose collateral — a shop, a home — to a money-loan court. Meanwhile the 2019 rules let a politically connected group owing thousands of crore reschedule with a two-percent down payment and keep borrowing. Neither the fraud nor the favours ever showed up as a single line on the chart; the gap between those two experiences is where the bad-loan pile quietly grew."},
- {n:null,x:2025.9,era:4,year:"2025",tag:"human",tagLabel:"Human",title:"Every bad loan was once someone's savings",body:"A non-performing loan is not abstract money. It began as a deposit — a garment worker's savings, a retiree's pension, a remittance wired home from the Gulf. When Tk 10.87 lakh crore of credit turns distressed, the loss does not vanish; it lands on depositors, on the taxpayers who recapitalise state banks, and on every citizen who pays more for a weaker taka. That is the real ledger of trust the title points to."}
+ {n:null,x:2019.6,era:3,year:"2009–24",tag:"human",tagLabel:"Human",title:"Two borrowers, two rulebooks",body:"This is the arithmetic ordinary Bangladeshis felt in their gut. A small trader who missed a few instalments could lose collateral, a shop, a home, to a money-loan court. Meanwhile the 2019 rules let a politically connected group owing thousands of crore reschedule with a two-percent down payment and keep borrowing. Neither the fraud nor the favours ever showed up as a single line on the chart; the gap between those two experiences is where the bad-loan pile quietly grew."},
+ {n:null,x:2025.9,era:4,year:"2025",tag:"human",tagLabel:"Human",title:"Every bad loan was once someone's savings",body:"A non-performing loan is not abstract money. It began as a deposit, a garment worker's savings, a retiree's pension, a remittance wired home from the Gulf. When Tk 10.87 lakh crore of credit turns distressed, the loss does not vanish; it lands on depositors, on the taxpayers who recapitalise state banks, and on every citizen who pays more for a weaker taka. That is the real ledger of trust the title points to."}
 ];
 // Vertical label offsets for the annotation discs (presentation only, not data).
 const DISC_POS = {
@@ -152,11 +152,11 @@ const EVENT_SOURCES = {
 // Each entry carries English + Bangla labels; the category keys resolve via i18n.
 // Source: verified landing pages, July 2026. All open in a new tab.
 const REFERENCES = [
-  {cat:"data", url:"https://www.bb.org.bd/en/index.php/publication/publictn/0/37", en:"Bangladesh Bank — Financial Stability Reports", bn:"বাংলাদেশ ব্যাংক — আর্থিক স্থিতিশীলতা প্রতিবেদন"},
-  {cat:"data", url:"https://www.bb.org.bd", en:"Bangladesh Bank — home & statistics", bn:"বাংলাদেশ ব্যাংক — মূল সাইট ও পরিসংখ্যান"},
-  {cat:"data", url:"https://data.worldbank.org/indicator/FB.AST.NPER.ZS?locations=BD", en:"World Bank — NPL ratio, Bangladesh series", bn:"বিশ্বব্যাংক — খেলাপি ঋণের হার, বাংলাদেশ সারি"},
-  {cat:"data", url:"https://www.imf.org/en/Countries/BGD", en:"IMF — Bangladesh country page & Article IV", bn:"আইএমএফ — বাংলাদেশ কান্ট্রি পেজ ও আর্টিকেল IV"},
-  {cat:"data", url:"https://www.adb.org/countries/bangladesh/main", en:"ADB — Bangladesh & Asia NPL context", bn:"এডিবি — বাংলাদেশ ও এশিয়ার খেলাপি ঋণ প্রেক্ষাপট"},
+  {cat:"data", url:"https://www.bb.org.bd/en/index.php/publication/publictn/0/37", en:"Bangladesh Bank, Financial Stability Reports", bn:"বাংলাদেশ ব্যাংক, আর্থিক স্থিতিশীলতা প্রতিবেদন"},
+  {cat:"data", url:"https://www.bb.org.bd", en:"Bangladesh Bank, home & statistics", bn:"বাংলাদেশ ব্যাংক, মূল সাইট ও পরিসংখ্যান"},
+  {cat:"data", url:"https://data.worldbank.org/indicator/FB.AST.NPER.ZS?locations=BD", en:"World Bank, NPL ratio, Bangladesh series", bn:"বিশ্বব্যাংক, খেলাপি ঋণের হার, বাংলাদেশ সারি"},
+  {cat:"data", url:"https://www.imf.org/en/Countries/BGD", en:"IMF, Bangladesh country page & Article IV", bn:"আইএমএফ, বাংলাদেশ কান্ট্রি পেজ ও আর্টিকেল IV"},
+  {cat:"data", url:"https://www.adb.org/countries/bangladesh/main", en:"ADB, Bangladesh & Asia NPL context", bn:"এডিবি, বাংলাদেশ ও এশিয়ার খেলাপি ঋণ প্রেক্ষাপট"},
   {cat:"events", url:"https://en.wikipedia.org/wiki/1997_Asian_financial_crisis", en:"1997 Asian financial crisis", bn:"১৯৯৭ এশীয় আর্থিক সংকট"},
   {cat:"events", url:"https://en.wikipedia.org/wiki/2011_Bangladesh_share_market_scam", en:"2011 Bangladesh share-market scam", bn:"২০১১ বাংলাদেশ শেয়ারবাজার কেলেঙ্কারি"},
   {cat:"events", url:"https://en.wikipedia.org/wiki/Hallmark-Sonali_Bank_Loan_Scam", en:"Hall-Mark–Sonali Bank loan scam", bn:"হল-মার্ক–সোনালী ব্যাংক ঋণ কেলেঙ্কারি"},
@@ -168,5 +168,15 @@ const REFERENCES = [
   {cat:"regulators", url:"https://www.sbp.org.pk", en:"State Bank of Pakistan (SBP)", bn:"স্টেট ব্যাংক অব পাকিস্তান (SBP)"},
   {cat:"regulators", url:"https://www.cbsl.gov.lk", en:"Central Bank of Sri Lanka (CBSL)", bn:"সেন্ট্রাল ব্যাংক অব শ্রীলঙ্কা (CBSL)"},
   {cat:"regulators", url:"https://www.nrb.org.np", en:"Nepal Rastra Bank (NRB)", bn:"নেপাল রাষ্ট্র ব্যাংক (NRB)"},
-  {cat:"regulators", url:"https://www.ojk.go.id", en:"Financial Services Authority, Indonesia (OJK)", bn:"ফিন্যান্সিয়াল সার্ভিসেস অথরিটি, ইন্দোনেশিয়া (OJK)"}
+  {cat:"regulators", url:"https://www.ojk.go.id", en:"Financial Services Authority, Indonesia (OJK)", bn:"ফিন্যান্সিয়াল সার্ভিসেস অথরিটি, ইন্দোনেশিয়া (OJK)"},
+  // Peoples-edition sources: danger-map cross-country CRAR/NPL and the White Paper receipts.
+  {cat:"peoples", url:"https://www.sbp.org.pk/FSR/index.html", en:"State Bank of Pakistan, Financial Stability / H1CY25 Mid-Year Review", bn:"স্টেট ব্যাংক অব পাকিস্তান, আর্থিক স্থিতিশীলতা ও H1CY25 মধ্যবর্ষ পর্যালোচনা"},
+  {cat:"peoples", url:"https://www.cbsl.gov.lk/en/publications/economic-and-financial-reports/financial-stability-review", en:"Central Bank of Sri Lanka, Financial Stability Review 2025", bn:"সেন্ট্রাল ব্যাংক অব শ্রীলঙ্কা, ফিন্যান্সিয়াল স্ট্যাবিলিটি রিভিউ ২০২৫"},
+  {cat:"peoples", url:"https://www.ojk.go.id/en/berita-dan-kegiatan/siaran-pers/Default.aspx", en:"OJK Indonesia, Board of Commissioners press release (Sep 2025)", bn:"OJK ইন্দোনেশিয়া, কমিশনার্স বোর্ডের প্রেস বিজ্ঞপ্তি (সেপ্টেম্বর ২০২৫)"},
+  {cat:"peoples", url:"https://www.imf.org/en/Countries/VNM", en:"IMF, Vietnam Article IV 2025", bn:"আইএমএফ, ভিয়েতনাম আর্টিকেল IV ২০২৫"},
+  {cat:"peoples", url:"https://www.imf.org/en/Countries/NPL", en:"IMF, Nepal ECF 6th Review (Apr 2025)", bn:"আইএমএফ, নেপাল ECF ষষ্ঠ পর্যালোচনা (এপ্রিল ২০২৫)"},
+  {cat:"peoples", url:"https://www.nrb.org.np", en:"Nepal Rastra Bank, provisional financial indicators (mid-Aug 2025)", bn:"নেপাল রাষ্ট্র ব্যাংক, প্রাথমিক আর্থিক সূচক (মধ্য-আগস্ট ২০২৫)"},
+  {cat:"peoples", url:"https://www.bsp.gov.ph", en:"Bangko Sentral ng Pilipinas, banking indicators (via Philippine News Agency)", bn:"ব্যাংকো সেন্ট্রাল এনগ পিলিপিনাস, ব্যাংকিং সূচক (ফিলিপাইন নিউজ এজেন্সির মাধ্যমে)"},
+  {cat:"peoples", url:"https://www.thedailystar.net", en:"White Paper on the Bangladesh economy (Dec 2024): The Daily Star coverage", bn:"বাংলাদেশ অর্থনীতির শ্বেতপত্র (ডিসেম্বর ২০২৪): দ্য ডেইলি স্টার প্রতিবেদন"},
+  {cat:"peoples", url:"https://www.tbsnews.net", en:"White Paper committee findings: The Business Standard coverage", bn:"শ্বেতপত্র কমিটির ফলাফল: দ্য বিজনেস স্ট্যান্ডার্ড প্রতিবেদন"}
 ];
