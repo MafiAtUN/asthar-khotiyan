@@ -11,6 +11,12 @@ decade of flattered numbers, and up to the highest reported ratio in the world i
 estimates, sets Bangladesh against comparator economies that climbed down their
 own bad-loan mountains, and closes with an event ledger of twenty-one exhibits.
 
+**Fully bilingual (English ⇄ বাংলা).** A one-click language toggle re-renders the
+entire essay — prose, chart labels, tooltips, and Bangla numerals — with no page
+reload. A plain-language primer, a glossary, per-section "story boxes" with worked
+examples, per-card source links, and a *Sources & further reading* section make it
+approachable for readers new to banking data. Every external link opens in a new tab.
+
 ## Screenshot
 
 ![The Ledger of Trust — the explore chart with all overlay layers active](assets/og-cover.png)
@@ -74,11 +80,13 @@ asthar-khotiyan/
 │   └── styles.css      # All styles
 ├── js/
 │   ├── data.js         # Every data array (SERIES, QPEAK, CRAR, DIST, ERAS,
-│   │                   #   EVENTS, DISC_POS, SNAP, ASIA_AVG, COMP) — loaded first
+│   │                   #   EVENTS, DISC_POS, SNAP, ASIA_AVG, COMP) + EVENT_SOURCES
+│   │                   #   and REFERENCES — loaded first
+│   ├── i18n.js         # English⇄বাংলা engine + full translation tables + toggle
 │   ├── story.js        # Shared helpers, reading-progress bar, scrollytelling
 │   ├── chart.js        # Explore chart + overlay layers + figures counters
 │   ├── compare.js      # Snapshot bars + comparator small multiples
-│   └── ledger.js       # Event ledger cards + click-to-chart linking
+│   └── ledger.js       # Event ledger cards + click-to-chart + Sources list
 ├── assets/
 │   ├── favicon.svg     # A red disc on bottle green
 │   └── og-cover.png    # Social-share image (placeholder)

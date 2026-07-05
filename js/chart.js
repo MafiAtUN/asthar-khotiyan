@@ -36,20 +36,20 @@ function render(){
     E('rect',{x:xs(e.from),y:M.t-14,width:xs(e.to)-xs(e.from),height:(H-M.b+30)-(M.t-14),fill:e.tone?'#16452F':'#113526',opacity:.5},svg);
     E('rect',{x:xs(e.from),y:H-M.b+36,width:xs(e.to)-xs(e.from),height:16,fill:e.tone?'#1E5B3F':'#174B33',stroke:'#25503C','stroke-width':.6},svg);
     if(xs(e.to)-xs(e.from)>84)
-      E('text',{x:(xs(e.from)+xs(e.to))/2,y:H-M.b+47.5,'text-anchor':'middle',class:'era-lab'},svg).textContent=e.label;
+      E('text',{x:(xs(e.from)+xs(e.to))/2,y:H-M.b+47.5,'text-anchor':'middle',class:'era-lab'},svg).textContent=tx(e.label);
   });
   const step=state.dist?10:5;
   for(let v=Math.ceil(Y0/step)*step;v<=Y1;v+=step){
     E('line',{x1:M.l,x2:W-M.r,y1:ys(v),y2:ys(v),class:v===0&&Y0<0?'zeroline':'gridline'},svg);
-    E('text',{x:M.l-10,y:ys(v)+3.5,'text-anchor':'end',class:'axis-lab-y'},svg).textContent=v===Y1?v+'%':v;
+    E('text',{x:M.l-10,y:ys(v)+3.5,'text-anchor':'end',class:'axis-lab-y'},svg).textContent=num(v===Y1?v+'%':v);
   }
   const xStep=innerWidth<700?7:4;
   for(let yr=1997;yr<=2025;yr+=xStep)
-    E('text',{x:xs(yr),y:H-M.b+22,'text-anchor':'middle',class:'axis-lab'},svg).textContent=yr;
-  E('text',{x:xs(2025),y:H-M.b+22,'text-anchor':'middle',class:'axis-lab','font-weight':600},svg).textContent='2025';
+    E('text',{x:xs(yr),y:H-M.b+22,'text-anchor':'middle',class:'axis-lab'},svg).textContent=num(yr);
+  E('text',{x:xs(2025),y:H-M.b+22,'text-anchor':'middle',class:'axis-lab','font-weight':600},svg).textContent=num('2025');
   if(state.basel){
     E('line',{x1:M.l,x2:W-M.r,y1:ys(10),y2:ys(10),class:'basel-line'},svg);
-    E('text',{x:W-M.r-4,y:ys(10)-6,'text-anchor':'end',class:'series-lab',fill:'#8FB6E8'},svg).textContent='Basel III minimum CRAR · 10%';
+    E('text',{x:W-M.r-4,y:ys(10)-6,'text-anchor':'end',class:'series-lab',fill:'#8FB6E8'},svg).textContent=tx('Basel III minimum CRAR · 10%');
   }
   let d='',dArea=`M ${xs(SERIES[0][0])} ${ys(Math.max(0,Y0))} `;
   SERIES.forEach((p,i)=>{
@@ -71,16 +71,16 @@ function render(){
   SERIES.forEach(p=>E('circle',{cx:xs(p[0]),cy:ys(p[1]),r:3.2,fill:'#E2B33C',stroke:'#0D2B1F','stroke-width':1.4},svg));
   E('line',{x1:xs(QPEAK.x),y1:ys(30.6)-4,x2:xs(QPEAK.x),y2:ys(QPEAK.y)+7,class:'peak-stem'},svg);
   E('circle',{cx:xs(QPEAK.x),cy:ys(QPEAK.y),r:5.5,fill:'none',stroke:'#E8434F','stroke-width':2.6},svg);
-  E('text',{x:xs(QPEAK.x)-12,y:ys(QPEAK.y)-12,'text-anchor':'end',class:'callout'},svg).textContent=QPEAK.label;
+  E('text',{x:xs(QPEAK.x)-12,y:ys(QPEAK.y)-12,'text-anchor':'end',class:'callout'},svg).textContent=tx(QPEAK.label);
   const c1=E('text',{x:xs(1999),y:ys(41.1)-46,'text-anchor':'middle',class:'callout'},svg);
-  E('tspan',{x:xs(1999),class:'big'},c1).textContent='41.1%';
-  E('tspan',{x:xs(1999),dy:15},c1).textContent='1999 peak';
+  E('tspan',{x:xs(1999),class:'big'},c1).textContent=num('41.1%');
+  E('tspan',{x:xs(1999),dy:15},c1).textContent=tx('1999 peak');
   const c2=E('text',{x:xs(2011),y:ys(6.1)+56,'text-anchor':'middle',class:'callout'},svg);
-  E('tspan',{x:xs(2011),class:'big'},c2).textContent='6.1%';
-  E('tspan',{x:xs(2011),dy:15},c2).textContent='2011 low';
+  E('tspan',{x:xs(2011),class:'big'},c2).textContent=num('6.1%');
+  E('tspan',{x:xs(2011),dy:15},c2).textContent=tx('2011 low');
   const c3=E('text',{x:xs(2025)-16,y:ys(30.6)-2,'text-anchor':'end',class:'callout'},svg);
-  E('tspan',{x:xs(2025)-16,class:'big red'},c3).textContent='30.6%';
-  E('tspan',{x:xs(2025)-16,dy:15},c3).textContent='Dec 2025';
+  E('tspan',{x:xs(2025)-16,class:'big red'},c3).textContent=num('30.6%');
+  E('tspan',{x:xs(2025)-16,dy:15},c3).textContent=tx('Dec 2025');
   if(state.crar){
     let dc='';
     CRAR.forEach((p,i)=>{dc+=(i?'L ':'M ')+xs(p.x).toFixed(1)+' '+ys(p.y).toFixed(1)+' ';});
@@ -88,14 +88,14 @@ function render(){
     CRAR.forEach(p=>{
       const c=E('circle',{cx:xs(p.x),cy:ys(p.y),r:4,class:'crar-dot',style:'cursor:pointer'},svg);
       c.addEventListener('mouseenter',e=>{
-        tip.innerHTML=`<div class="t-year">${p.lab}</div><div class="t-val">${p.y.toFixed(2)}%</div><div class="t-sub">Sector CRAR (capital to risk-weighted assets)</div>`;
+        tip.innerHTML=`<div class="t-year">${num(p.lab)}</div><div class="t-val">${num(p.y.toFixed(2))}%</div><div class="t-sub">${tx('Sector CRAR (capital to risk-weighted assets)')}</div>`;
         tip.classList.add('show');positionTip(e.clientX,e.clientY);
       });
       c.addEventListener('mouseleave',()=>tip.classList.remove('show'));
     });
     E('text',{x:xs(2020)-6,y:ys(11.6)-10,class:'series-lab',fill:'#8FB6E8'},svg).textContent='CRAR';
     const lc=CRAR[CRAR.length-1];
-    E('text',{x:xs(lc.x)+10,y:ys(lc.y)+4,class:'series-lab',fill:'#8FB6E8'},svg).textContent='−2.64%';
+    E('text',{x:xs(lc.x)+10,y:ys(lc.y)+4,class:'series-lab',fill:'#8FB6E8'},svg).textContent=tx('−2.64%');
   }
   if(state.dist){
     DIST.forEach(p=>{
@@ -103,10 +103,10 @@ function render(){
       const g=E('g',{style:'cursor:pointer'},svg);
       E('rect',{x:xs(p.x)-6.5,y:ys(p.y)-6.5,width:13,height:13,class:'dist-dia',transform:`rotate(45 ${xs(p.x)} ${ys(p.y)})`},g);
       const anchor=p.x>2024?'end':'start';
-      const tx=p.x>2024?xs(p.x)-12:xs(p.x)+12;
-      E('text',{x:tx,y:ys(p.y)+4,'text-anchor':anchor,class:'series-lab',fill:'#E8434F'},g).textContent=p.y+'% · '+p.lab;
+      const lx=p.x>2024?xs(p.x)-12:xs(p.x)+12;
+      E('text',{x:lx,y:ys(p.y)+4,'text-anchor':anchor,class:'series-lab',fill:'#E8434F'},g).textContent=num(p.y)+'% · '+tx(p.lab);
       g.addEventListener('mouseenter',e=>{
-        tip.innerHTML=`<div class="t-year">${p.lab}</div><div class="t-val">≈${p.y}%</div><div class="t-ev">${p.note}.</div>`;
+        tip.innerHTML=`<div class="t-year">${tx(p.lab)}</div><div class="t-val">≈${num(p.y)}%</div><div class="t-ev">${tx(p.note)}.</div>`;
         tip.classList.add('show');positionTip(e.clientX,e.clientY);
       });
       g.addEventListener('mousemove',e=>positionTip(e.clientX,e.clientY));
@@ -116,13 +116,13 @@ function render(){
   EVENTS.filter(e=>e.n).forEach(ev=>{
     const px=xs(ev.x),py=ys(valueAt(ev.x));
     const off=(DISC_POS[ev.n]||{dy:-26}).dy;
-    const g=E('g',{class:'disc',tabindex:0,role:'button','aria-label':`Event ${ev.n}: ${ev.title}`},svg);
+    const g=E('g',{class:'disc',tabindex:0,role:'button','aria-label':`Event ${ev.n}: ${evTitle(ev)}`},svg);
     E('line',{x1:px,y1:py+(off>0?5:-5),x2:px,y2:py+off+(off>0?-11:11),stroke:'#E8434F','stroke-width':1.2,opacity:.7},g);
     E('circle',{cx:px,cy:py+off,r:10.5},g);
-    E('text',{x:px,y:py+off+3.4,'text-anchor':'middle'},g).textContent=ev.n;
+    E('text',{x:px,y:py+off+3.4,'text-anchor':'middle'},g).textContent=num(ev.n);
     discEls[ev.n]=g;
     const show=(cx,cy)=>{
-      tip.innerHTML=`<div class="t-year">${ev.year} &middot; No. ${ev.n}</div><div class="t-val">${valueAt(ev.x).toFixed(1)}%</div><div class="t-ev"><b>${ev.title}.</b></div>`;
+      tip.innerHTML=`<div class="t-year">${num(ev.year)} &middot; ${isBn()?'নং':'No.'} ${num(ev.n)}</div><div class="t-val">${num(valueAt(ev.x).toFixed(1))}%</div><div class="t-ev"><b>${evTitle(ev)}.</b></div>`;
       tip.classList.add('show');positionTip(cx,cy);
     };
     g.addEventListener('mouseenter',e=>show(e.clientX,e.clientY));
@@ -152,8 +152,8 @@ svg.addEventListener('mousemove',e=>{
   hoverDot.setAttribute('opacity',1);
   let extra='';
   const cr=CRAR.find(c=>Math.abs(c.x-yr)<.3);
-  if(state.crar&&cr)extra+=`<div class="t-sub">CRAR ${cr.y.toFixed(2)}%</div>`;
-  tip.innerHTML=`<div class="t-year">${yr}</div><div class="t-val">${rec[1].toFixed(1)}%</div>${extra}`;
+  if(state.crar&&cr)extra+=`<div class="t-sub">CRAR ${num(cr.y.toFixed(2))}%</div>`;
+  tip.innerHTML=`<div class="t-year">${num(yr)}</div><div class="t-val">${num(rec[1].toFixed(1))}%</div>${extra}`;
   tip.classList.add('show');
   positionTip(e.clientX,e.clientY);
 });
@@ -177,25 +177,32 @@ bindToggle('btn-crar','crar');
 bindToggle('btn-dist','dist');
 bindToggle('btn-basel','basel');
 render();
+// Re-draw the whole chart (labels, callouts, tooltips) when the language switches.
+I18N.rerender.push(render);
 
 /* ============================================================
    COUNTERS (figures strip)
    ============================================================ */
 (function(){
   const nums=[...document.querySelectorAll('.fig .num[data-count]')];
-  if(REDUCE){nums.forEach(n=>n.textContent=n.dataset.count+(n.dataset.suffix||'%'));return;}
-  const io=new IntersectionObserver(es=>{
-    es.forEach(en=>{
-      if(!en.isIntersecting)return;
-      const n=en.target,target=parseFloat(n.dataset.count),suf=n.dataset.suffix||'%';
-      const t0=performance.now(),dur=1100;
-      (function tick(t){
-        const k=Math.min(1,(t-t0)/dur),e2=1-Math.pow(1-k,3);
-        n.textContent=(target*e2).toFixed(target%1?1:0)+suf;
-        if(k<1)requestAnimationFrame(tick);
-      })(t0);
-      io.unobserve(n);
-    });
-  },{threshold:.5});
-  nums.forEach(n=>io.observe(n));
+  const finalOf=n=>n.dataset.count+(n.dataset.suffix||'%');
+  if(REDUCE){nums.forEach(n=>{n._done=true;n.textContent=num(finalOf(n));});}
+  else{
+    const io=new IntersectionObserver(es=>{
+      es.forEach(en=>{
+        if(!en.isIntersecting)return;
+        const n=en.target,target=parseFloat(n.dataset.count),suf=n.dataset.suffix||'%';
+        const t0=performance.now(),dur=1100;
+        (function tick(t){
+          const k=Math.min(1,(t-t0)/dur),e2=1-Math.pow(1-k,3);
+          n.textContent=num((target*e2).toFixed(target%1?1:0)+suf);
+          if(k<1)requestAnimationFrame(tick); else n._done=true;
+        })(t0);
+        io.unobserve(n);
+      });
+    },{threshold:.5});
+    nums.forEach(n=>io.observe(n));
+  }
+  // On language switch, re-format the already-settled counters in the new numerals.
+  I18N.rerender.push(()=>nums.forEach(n=>{ if(n._done) n.textContent=num(finalOf(n)); }));
 })();

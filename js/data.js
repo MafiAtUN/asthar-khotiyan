@@ -118,3 +118,51 @@ const COMP = [
   note:{x:2002,y:30.4,t:"early-2000s cleanup"},
   take:"A small neighbour that faced a Bangladesh-scale problem in the early 2000s, with nearly a third of loans bad, and resolved it within a decade through foreign management contracts at the two largest state banks."}
 ];
+
+// Per-event "check the source" links, keyed by the event's English title.
+// Rendered as an open-in-new-tab link on the matching ledger card.
+// Source: official pages (Bangladesh Bank, IMF, World Bank) and Wikipedia summaries, verified July 2026.
+const EVENT_SOURCES = {
+  "Asian financial crisis sweeps the region":            {url:"https://en.wikipedia.org/wiki/1997_Asian_financial_crisis", name:"Wikipedia"},
+  "The flood of the century":                            {url:"https://en.wikipedia.org/wiki/1998_Bangladesh_flood", name:"Wikipedia"},
+  "The all-time peak: 41.1 percent":                     {url:"https://data.worldbank.org/indicator/FB.AST.NPER.ZS?locations=BD", name:"World Bank"},
+  "Global financial crisis, limited local burn":         {url:"https://en.wikipedia.org/wiki/2007%E2%80%932008_financial_crisis", name:"Wikipedia"},
+  "Awami League returns to office":                      {url:"https://en.wikipedia.org/wiki/2008_Bangladeshi_general_election", name:"Wikipedia"},
+  "The Dhaka stock market boom and crash":               {url:"https://en.wikipedia.org/wiki/2011_Bangladesh_share_market_scam", name:"Wikipedia"},
+  "The series low: 6.1 percent":                         {url:"https://data.worldbank.org/indicator/FB.AST.NPER.ZS?locations=BD", name:"World Bank"},
+  "Hall-Mark, and the rules catch up":                   {url:"https://en.wikipedia.org/wiki/Hallmark-Sonali_Bank_Loan_Scam", name:"Wikipedia"},
+  "BASIC Bank unravels; nine new licences":              {url:"https://en.wikipedia.org/wiki/BASIC_Bank_Limited", name:"Wikipedia"},
+  "The central bank cyber heist":                        {url:"https://en.wikipedia.org/wiki/Bangladesh_Bank_robbery", name:"Wikipedia"},
+  "Ownership change at the largest private bank":        {url:"https://en.wikipedia.org/wiki/Islami_Bank_Bangladesh", name:"Wikipedia"},
+  "The two-percent rescheduling window; the IMF dissents":{url:"https://www.imf.org/en/Countries/BGD", name:"IMF"},
+  "Pandemic moratorium freezes the picture":             {url:"https://www.bb.org.bd/en/index.php/publication/publictn/0/37", name:"Bangladesh Bank"},
+  "Forex crisis and the turn to the IMF":                {url:"https://www.imf.org/en/Countries/BGD", name:"IMF"},
+  "The 4.7 billion dollar programme and an NPL roadmap": {url:"https://www.imf.org/en/news/articles/2023/01/30/pr2325-bangladesh-imf-executive-board-approves-usd-ecf-eff-and-usd-under-rsf", name:"IMF"},
+  "The July Uprising and a change of government":         {url:"https://en.wikipedia.org/wiki/July_Uprising", name:"Wikipedia"},
+  "The 90-day standard returns; the mountain becomes visible":{url:"https://www.bb.org.bd/en/index.php/publication/publictn/0/37", name:"Bangladesh Bank"},
+  "Highest reported ratio in the world":                 {url:"https://data.worldbank.org/indicator/FB.AST.NPER.ZS?locations=BD", name:"World Bank"},
+  "Rescheduling relief trims the headline; capital turns negative":{url:"https://www.bb.org.bd/en/index.php/publication/publictn/0/37", name:"Bangladesh Bank"}
+};
+
+// Curated "Sources & further reading" list, grouped by category.
+// Each entry carries English + Bangla labels; the category keys resolve via i18n.
+// Source: verified landing pages, July 2026. All open in a new tab.
+const REFERENCES = [
+  {cat:"data", url:"https://www.bb.org.bd/en/index.php/publication/publictn/0/37", en:"Bangladesh Bank — Financial Stability Reports", bn:"বাংলাদেশ ব্যাংক — আর্থিক স্থিতিশীলতা প্রতিবেদন"},
+  {cat:"data", url:"https://www.bb.org.bd", en:"Bangladesh Bank — home & statistics", bn:"বাংলাদেশ ব্যাংক — মূল সাইট ও পরিসংখ্যান"},
+  {cat:"data", url:"https://data.worldbank.org/indicator/FB.AST.NPER.ZS?locations=BD", en:"World Bank — NPL ratio, Bangladesh series", bn:"বিশ্বব্যাংক — খেলাপি ঋণের হার, বাংলাদেশ সারি"},
+  {cat:"data", url:"https://www.imf.org/en/Countries/BGD", en:"IMF — Bangladesh country page & Article IV", bn:"আইএমএফ — বাংলাদেশ কান্ট্রি পেজ ও আর্টিকেল IV"},
+  {cat:"data", url:"https://www.adb.org/countries/bangladesh/main", en:"ADB — Bangladesh & Asia NPL context", bn:"এডিবি — বাংলাদেশ ও এশিয়ার খেলাপি ঋণ প্রেক্ষাপট"},
+  {cat:"events", url:"https://en.wikipedia.org/wiki/1997_Asian_financial_crisis", en:"1997 Asian financial crisis", bn:"১৯৯৭ এশীয় আর্থিক সংকট"},
+  {cat:"events", url:"https://en.wikipedia.org/wiki/2011_Bangladesh_share_market_scam", en:"2011 Bangladesh share-market scam", bn:"২০১১ বাংলাদেশ শেয়ারবাজার কেলেঙ্কারি"},
+  {cat:"events", url:"https://en.wikipedia.org/wiki/Hallmark-Sonali_Bank_Loan_Scam", en:"Hall-Mark–Sonali Bank loan scam", bn:"হল-মার্ক–সোনালী ব্যাংক ঋণ কেলেঙ্কারি"},
+  {cat:"events", url:"https://en.wikipedia.org/wiki/BASIC_Bank_Limited", en:"BASIC Bank and its loan scandal", bn:"বেসিক ব্যাংক ও এর ঋণ কেলেঙ্কারি"},
+  {cat:"events", url:"https://en.wikipedia.org/wiki/Bangladesh_Bank_robbery", en:"Bangladesh Bank cyber heist, 2016", bn:"বাংলাদেশ ব্যাংক সাইবার চুরি, ২০১৬"},
+  {cat:"events", url:"https://www.imf.org/en/news/articles/2023/01/30/pr2325-bangladesh-imf-executive-board-approves-usd-ecf-eff-and-usd-under-rsf", en:"IMF approves the $4.7bn programme, 2023", bn:"আইএমএফের ৪৭০ কোটি ডলার কর্মসূচি অনুমোদন, ২০২৩"},
+  {cat:"events", url:"https://en.wikipedia.org/wiki/July_Uprising", en:"The July Uprising, 2024", bn:"জুলাই অভ্যুত্থান, ২০২৪"},
+  {cat:"regulators", url:"https://www.rbi.org.in", en:"Reserve Bank of India (RBI)", bn:"রিজার্ভ ব্যাংক অব ইন্ডিয়া (RBI)"},
+  {cat:"regulators", url:"https://www.sbp.org.pk", en:"State Bank of Pakistan (SBP)", bn:"স্টেট ব্যাংক অব পাকিস্তান (SBP)"},
+  {cat:"regulators", url:"https://www.cbsl.gov.lk", en:"Central Bank of Sri Lanka (CBSL)", bn:"সেন্ট্রাল ব্যাংক অব শ্রীলঙ্কা (CBSL)"},
+  {cat:"regulators", url:"https://www.nrb.org.np", en:"Nepal Rastra Bank (NRB)", bn:"নেপাল রাষ্ট্র ব্যাংক (NRB)"},
+  {cat:"regulators", url:"https://www.ojk.go.id", en:"Financial Services Authority, Indonesia (OJK)", bn:"ফিন্যান্সিয়াল সার্ভিসেস অথরিটি, ইন্দোনেশিয়া (OJK)"}
+];

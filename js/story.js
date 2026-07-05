@@ -72,18 +72,23 @@ addEventListener('scroll',()=>{
 
   const bignum=document.getElementById('bignum');
   const biglab=document.getElementById('bignumlab');
+  bignum._val=parseFloat(bignum.textContent)||0;   // track the numeric value separately from the (possibly Bangla-numeral) text
   let numAnim=null;
   function setNum(target,lab){
     biglab.textContent=lab;
-    if(REDUCE){bignum.textContent=target.toFixed(1);return;}
-    const from=parseFloat(bignum.textContent)||0;
+    if(REDUCE){bignum._val=target;bignum.textContent=num(target.toFixed(1));return;}
+    const from=(typeof bignum._val==='number')?bignum._val:0;
     const t0=performance.now(),dur=650;
     cancelAnimationFrame(numAnim);
     (function tick(t){
       const k=Math.min(1,(t-t0)/dur), e=1-Math.pow(1-k,3);
-      bignum.textContent=(from+(target-from)*e).toFixed(1);
+      const v=from+(target-from)*e;
+      bignum._val=v; bignum.textContent=num(v.toFixed(1));
       if(k<1)numAnim=requestAnimationFrame(tick);
     })(t0);
+  }
+  function stepLabel(step){
+    return (isBn() && step.dataset.labBn) ? step.dataset.labBn : step.dataset.lab;
   }
   function goTo(step){
     const toYear=parseFloat(step.dataset.to);
@@ -91,7 +96,7 @@ addEventListener('scroll',()=>{
     line.style.strokeDashoffset=Math.max(0,total-L);
     const pt=line.getPointAtLength(L);
     cursor.setAttribute('cx',pt.x);cursor.setAttribute('cy',pt.y);
-    setNum(parseFloat(step.dataset.num),step.dataset.lab);
+    setNum(parseFloat(step.dataset.num),stepLabel(step));
     /* light bands up to current year */
     bands.forEach((b,i)=>b.classList.toggle('on',ERAS[i].from<=toYear));
   }
@@ -106,4 +111,6 @@ addEventListener('scroll',()=>{
   },{rootMargin:'-42% 0px -42% 0px'});
   steps.forEach(st=>io.observe(st));
   goTo(steps[0]); steps[0].classList.add('active');
+  /* re-apply the active step's label + number when the language switches */
+  I18N.rerender.push(()=>goTo(document.querySelector('.step.active')||steps[0]));
 })();

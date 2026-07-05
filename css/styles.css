@@ -305,3 +305,128 @@ footer p{font-family:'Sometype Mono',monospace;font-size:11.5px;color:var(--dim)
   .multiples{grid-template-columns:1fr}
   body{font-size:16.5px}
 }
+
+/* ==============================================================
+   BILINGUAL + READER-FRIENDLY COMPONENTS
+   Language toggle, plain-language primer, section story boxes,
+   glossary, sources list, and Bangla-mode typography.
+   ============================================================== */
+
+/* ---------- Language toggle ---------- */
+.lang-toggle{
+  position:fixed;top:14px;right:16px;z-index:80;
+  font-family:'Sometype Mono',monospace;font-size:12px;letter-spacing:.04em;
+  padding:8px 14px;border-radius:999px;cursor:pointer;
+  border:1px solid var(--hair);background:rgba(10,35,24,.82);color:var(--cream);
+  display:inline-flex;align-items:center;gap:8px;backdrop-filter:blur(5px);
+  transition:border-color .18s ease,color .18s ease;
+}
+.lang-toggle:hover{border-color:var(--gold);color:var(--gold)}
+.lang-toggle .lt-globe{color:var(--gold);font-size:13px;line-height:1}
+.lang-toggle .lt-cur{font-weight:500}
+
+/* ---------- Primer ---------- */
+.primer{border-bottom:1px solid var(--hair);background:rgba(10,35,24,.5)}
+.primer-inner{
+  max-width:var(--max);margin:0 auto;padding:40px 26px 44px;
+  display:grid;grid-template-columns:1.05fr .95fr;gap:36px 48px;align-items:start;
+}
+.primer-kicker{font-family:'Sometype Mono',monospace;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold)}
+.primer-h{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(22px,3vw,32px);letter-spacing:-.01em;margin:10px 0 14px}
+.primer-lead{font-size:17px;color:var(--cream-2);line-height:1.65;margin-bottom:14px}
+.primer-lead b{color:var(--cream);font-weight:500}
+.primer-eg{
+  font-size:15.5px;color:var(--cream-2);line-height:1.6;
+  border-left:2px solid var(--gold);padding:10px 0 10px 16px;background:linear-gradient(90deg,rgba(226,179,60,.06),transparent);
+}
+.primer-eg b{color:var(--gold)}
+.primer-cue{margin-top:16px;font-family:'Sometype Mono',monospace;font-size:12px;color:var(--dim);line-height:1.6}
+.primer-terms{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.term-chip{
+  border:1px solid var(--hair);border-radius:6px;padding:14px 15px;
+  background:rgba(13,43,31,.5);display:flex;flex-direction:column;gap:5px;
+}
+.term-chip b{font-family:'Sometype Mono',monospace;font-size:12px;letter-spacing:.02em;color:var(--gold);font-weight:600}
+.term-chip span{font-size:13.5px;color:var(--cream-2);line-height:1.5}
+
+/* ---------- Section story boxes ---------- */
+.storybox-wrap{max-width:var(--text-col);margin:20px auto 0;padding:0 26px}
+.storybox{
+  border-left:2px solid var(--gold);border-radius:0 6px 6px 0;
+  background:linear-gradient(90deg,rgba(226,179,60,.07),rgba(19,58,41,.3));
+  padding:16px 20px 18px;
+}
+.storybox-tag{font-family:'Sometype Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.storybox p{font-size:15.5px;color:var(--cream-2);line-height:1.66}
+.storybox p b{color:var(--cream);font-weight:500}
+
+/* ---------- Glossary ---------- */
+.glossary{margin-top:26px;border:1px solid var(--hair);border-radius:6px;padding:20px 20px 8px;background:rgba(13,43,31,.4)}
+.glossary h3{font-family:'Sometype Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.glossary ul{list-style:none}
+.glossary li{font-size:14.5px;color:var(--cream-2);line-height:1.6;padding:11px 0;border-top:1px solid var(--hair-2)}
+.glossary li:first-child{border-top:none}
+.glossary li b{color:var(--cream);font-weight:500}
+.glossary li i{color:var(--gold-2);font-style:normal}
+
+/* ---------- Ledger card source link ---------- */
+.entry .e-src{
+  display:inline-block;margin-top:12px;
+  font-family:'Sometype Mono',monospace;font-size:11px;letter-spacing:.02em;
+  color:var(--red-deep);text-decoration:none;border-bottom:1px solid rgba(196,33,47,.35);padding-bottom:1px;
+}
+.entry .e-src:hover{color:#8a1420;border-bottom-color:#8a1420}
+
+/* ---------- Sources & further reading ---------- */
+.refs{max-width:var(--max);margin:22px auto 0;padding:0 26px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.ref-group{border:1px solid var(--hair);border-radius:6px;padding:18px 18px 8px;background:rgba(13,43,31,.4)}
+.ref-group h3{font-family:'Sometype Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.ref-group ul{list-style:none}
+.ref-group li{border-top:1px solid var(--hair-2);padding:9px 0}
+.ref-group li:first-child{border-top:none}
+.ref-group a{font-size:14px;color:var(--cream-2);text-decoration:none;line-height:1.5;display:inline-flex;gap:6px;align-items:baseline;transition:color .15s ease}
+.ref-group a:hover{color:var(--gold)}
+.ref-out{color:var(--dim);font-size:11px}
+.refs-disc{max-width:var(--text-col);margin:22px auto 0;padding:0 26px;font-family:'Sometype Mono',monospace;font-size:11px;color:var(--dim);line-height:1.7}
+
+@media (max-width:820px){
+  .primer-inner{grid-template-columns:1fr;gap:26px}
+  .refs{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+  .primer-terms{grid-template-columns:1fr}
+  .lang-toggle{top:10px;right:10px;padding:7px 12px;font-size:11px}
+}
+
+/* ==============================================================
+   BANGLA MODE — swap the Latin display/mono faces for a
+   Bengali-capable face so bn text renders cleanly everywhere.
+   ============================================================== */
+[data-lang="bn"] .sec-bn{display:none}
+
+[data-lang="bn"] body,
+[data-lang="bn"] .kicker,[data-lang="bn"] .step-kicker,[data-lang="bn"] .story-numlab,
+[data-lang="bn"] .chart-sub,[data-lang="bn"] .layer-btn,[data-lang="bn"] .legend,
+[data-lang="bn"] .byline,[data-lang="bn"] .scroll-cue,[data-lang="bn"] .sec-no,
+[data-lang="bn"] .era-title,[data-lang="bn"] .entry .e-npl,[data-lang="bn"] .entry .e-tag,
+[data-lang="bn"] .entry .e-disc,[data-lang="bn"] .entry .e-src,[data-lang="bn"] .panel .storyl,
+[data-lang="bn"] .panel h4 .now,[data-lang="bn"] .comp-legend,[data-lang="bn"] footer p,
+[data-lang="bn"] .tip,[data-lang="bn"] .primer-kicker,[data-lang="bn"] .primer-cue,
+[data-lang="bn"] .term-chip b,[data-lang="bn"] .storybox-tag,[data-lang="bn"] .glossary h3,
+[data-lang="bn"] .ref-group h3,[data-lang="bn"] .ref-group a,[data-lang="bn"] .lang-toggle{
+  font-family:'Hind Siliguri',system-ui,sans-serif;
+}
+[data-lang="bn"] h1,[data-lang="bn"] h1 em,[data-lang="bn"] h2,[data-lang="bn"] h3,
+[data-lang="bn"] .story-num,[data-lang="bn"] .fig .num,[data-lang="bn"] .chart-title,
+[data-lang="bn"] .comp-card h3,[data-lang="bn"] .panel h4,[data-lang="bn"] .entry .e-year,
+[data-lang="bn"] .entry h3,[data-lang="bn"] .tip .t-val,[data-lang="bn"] .primer-h{
+  font-family:'Hind Siliguri',system-ui,sans-serif;letter-spacing:0;
+}
+/* SVG text nodes */
+[data-lang="bn"] .bar-lab,[data-lang="bn"] .bar-val,[data-lang="bn"] .bar-note,
+[data-lang="bn"] .mini-note,[data-lang="bn"] .mini-axis,[data-lang="bn"] .axis-lab,
+[data-lang="bn"] .axis-lab-y,[data-lang="bn"] .era-lab,[data-lang="bn"] .callout,
+[data-lang="bn"] .callout .big,[data-lang="bn"] .series-lab,[data-lang="bn"] .s-axis,
+[data-lang="bn"] .s-flag{
+  font-family:'Hind Siliguri',system-ui,sans-serif;
+}
