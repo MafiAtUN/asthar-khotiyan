@@ -480,6 +480,23 @@ footer p{font-family:'Sometype Mono',monospace;font-size:11.5px;color:var(--dim)
    ============================================================== */
 /* Danger map: match the other charts so the SVG scales to its container (no mobile overflow) */
 #dangermap{display:block;width:100%;height:auto}
+
+/* View toggle (map / scatter) */
+.view-toggle{display:flex;gap:8px;margin:2px 0 14px;flex-wrap:wrap}
+.vt{font-family:'Sometype Mono',monospace;font-size:12px;padding:8px 14px;border-radius:999px;
+  border:1px solid var(--hair);background:rgba(13,43,31,.6);color:var(--cream-2);cursor:pointer;transition:all .15s ease}
+.vt.on{background:var(--gold);border-color:var(--gold);color:var(--field-2);font-weight:600}
+
+/* World NPL map */
+#worldmap{display:block;width:100%;height:auto;border-radius:4px;background:#0B2519}
+.wm-c{transition:opacity .15s ease;cursor:pointer}
+.wm-c:hover{opacity:.9}
+.wm-legend{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;margin:12px 2px 4px}
+.wm-scale{display:flex;align-items:center;gap:8px;font-family:'Sometype Mono',monospace;font-size:11px;color:var(--dim)}
+.wm-bar{width:130px;height:10px;border-radius:3px;border:1px solid var(--hair-2)}
+.wm-scale-cap{color:var(--cream-2);margin-left:2px}
+.wm-war{display:flex;align-items:center;gap:7px;font-family:'Sometype Mono',monospace;font-size:11.5px;color:var(--cream-2)}
+.wm-sword{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;border:1.4px solid var(--red);color:#FF7A84;font-size:11px;background:rgba(10,35,24,.9)}
 /* Danger map punchline */
 .dm-punch{font-family:'Tiro Bangla','Bricolage Grotesque',serif;font-size:clamp(19px,2.4vw,26px);
   color:var(--cream);text-align:center;padding:16px 6px 8px;border-top:1px solid var(--hair-2);margin-top:10px}
@@ -550,6 +567,7 @@ footer p{font-family:'Sometype Mono',monospace;font-size:11.5px;color:var(--dim)
 [data-lang="bn"] .dm-ax-y,[data-lang="bn"] .dm-zero,[data-lang="bn"] .dm-punch,
 [data-lang="bn"] .fam-lab,[data-lang="bn"] .cv-lab,[data-lang="bn"] .cv-tab,
 [data-lang="bn"] .rcp-head,[data-lang="bn"] .rcp-row,[data-lang="bn"] .rcp-routes,
-[data-lang="bn"] .rcp-disc,[data-lang="bn"] .sb-lab,[data-lang="bn"] .pe-share{
+[data-lang="bn"] .rcp-disc,[data-lang="bn"] .sb-lab,[data-lang="bn"] .pe-share,
+[data-lang="bn"] .vt,[data-lang="bn"] .wm-scale-cap,[data-lang="bn"] .wm-war,[data-lang="bn"] .wm-lab{
   font-family:'Hind Siliguri',system-ui,sans-serif;
 }

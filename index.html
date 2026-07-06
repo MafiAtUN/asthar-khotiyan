@@ -177,20 +177,40 @@
         <span class="sec-bn" data-bn="পৃথিবীর ব্যাংকগুলো কোথায় দাঁড়িয়ে" data-en="where the world's banks stand"></span></h2>
   </div>
   <div class="sec-intro">
-    <p data-bn="ডানে গেলে খেলাপি ঋণ বেশি, নিচে নামলে ব্যাংকের মূলধনের কুশন পাতলা। প্রতিটি দেশ একটি বুদবুদ। নিচের ডান কোণটা দেখুন।"
-       data-en="Right means more bad loans; down means a thinner capital cushion. Each country is a bubble. Look at the bottom-right corner."></p>
+    <p data-bn="মানচিত্রে যত গাঢ় লাল, খেলাপি ঋণ তত বেশি। বাংলাদেশ পৃথিবীর সবচেয়ে গাঢ় দেশ। যুদ্ধ বা তীব্র সংকটে থাকা দেশগুলোতে ⚔ চিহ্ন। বিস্তারিত দেখতে দেশে ট্যাপ করুন।"
+       data-en="The deeper the red, the more bad loans. Bangladesh is the darkest country on Earth. A crossed-swords mark flags countries at war or in acute crisis. Tap any country for detail."></p>
   </div>
   <div class="compare">
     <div class="comp-card" style="position:relative">
-      <h3 data-bn="খেলাপি ঋণ বনাম মূলধনের কুশন, সর্বশেষ তথ্য" data-en="Bad loans vs capital cushion, latest data"></h3>
-      <div class="sub" data-bn="সোর্স: প্রতিটি দেশের কেন্দ্রীয় ব্যাংক · IMF · ADB (বুদবুদে ট্যাপ করুন)"
-           data-en="Sources: each country's central bank · IMF · ADB (tap a bubble)"></div>
-      <svg id="dangermap" viewBox="0 0 1120 640" role="img"
-        aria-label="Scatter plot of bad-loan ratio versus capital adequacy for eight economies; Bangladesh sits alone in the danger corner with negative capital."></svg>
-      <div class="tip" id="dm-tip"></div>
-      <p class="dm-punch"
-         data-bn="পুরো পৃথিবীতে এই কোণায় বাংলাদেশ একা।"
-         data-en="In this corner of the map, Bangladesh stands alone."></p>
+      <div class="view-toggle" role="group" aria-label="Choose map or scatter view">
+        <button id="vt-map" class="vt on" type="button" aria-pressed="true"><span data-bn="মানচিত্র" data-en="Map"></span></button>
+        <button id="vt-scatter" class="vt" type="button" aria-pressed="false"><span data-bn="স্ক্যাটার (NPL বনাম কুশন)" data-en="Scatter (NPL vs cushion)"></span></button>
+      </div>
+
+      <div id="worldmap-wrap">
+        <h3 data-bn="খেলাপি ঋণের বিশ্ব-মানচিত্র" data-en="The world map of bad loans"></h3>
+        <div class="sub" data-bn="সোর্স: প্রতিটি দেশের কেন্দ্রীয় ব্যাংক · IMF · ADB (দেশে ট্যাপ করুন)"
+             data-en="Sources: each country's central bank · IMF · ADB (tap a country)"></div>
+        <svg id="worldmap" viewBox="0 0 1000 500" role="img"
+          aria-label="World choropleth of bad-loan ratios. Bangladesh is the single darkest country at 30.6 percent; even war-torn Ukraine, plus Lebanon and Tunisia, are lighter, meaning lower bad-loan ratios."></svg>
+        <div class="wm-legend" id="wm-legend"></div>
+        <div class="tip" id="wm-tip"></div>
+        <p class="dm-punch"
+           data-bn="যুদ্ধ চলা ইউক্রেনেও খেলাপি ঋণ এখন বাংলাদেশের চেয়ে কম।"
+           data-en="Even war-torn Ukraine now has fewer bad loans than Bangladesh."></p>
+      </div>
+
+      <div id="dangermap-wrap" hidden>
+        <h3 data-bn="খেলাপি ঋণ বনাম মূলধনের কুশন, সর্বশেষ তথ্য" data-en="Bad loans vs capital cushion, latest data"></h3>
+        <div class="sub" data-bn="সোর্স: প্রতিটি দেশের কেন্দ্রীয় ব্যাংক · IMF · ADB (বুদবুদে ট্যাপ করুন)"
+             data-en="Sources: each country's central bank · IMF · ADB (tap a bubble)"></div>
+        <svg id="dangermap" viewBox="0 0 1120 640" role="img"
+          aria-label="Scatter plot of bad-loan ratio versus capital adequacy for eight economies; Bangladesh sits alone in the danger corner with negative capital."></svg>
+        <div class="tip" id="dm-tip"></div>
+        <p class="dm-punch"
+           data-bn="পুরো পৃথিবীতে এই কোণায় বাংলাদেশ একা।"
+           data-en="In this corner of the map, Bangladesh stands alone."></p>
+      </div>
     </div>
   </div>
 </section>
@@ -357,5 +377,7 @@
 <script src="js/ledger.js"></script>
 <script src="js/danger-map.js"></script>
 <script src="js/widgets.js"></script>
+<script src="js/worldmap-data.js"></script>
+<script src="js/world-map.js"></script>
 </body>
 </html>
