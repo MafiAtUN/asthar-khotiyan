@@ -114,3 +114,21 @@ addEventListener('scroll',()=>{
   /* re-apply the active step's label + number when the language switches */
   I18N.rerender.push(()=>goTo(document.querySelector('.step.active')||steps[0]));
 })();
+
+
+/* ============================================================
+   SHARE-BAR VISIBILITY
+   On narrow phones the fixed share bar can collide with the
+   scroll-story sticky pane, so hide it while the story owns the
+   screen (Part 4.6). Desktop keeps the bar visible throughout.
+   ============================================================ */
+(function(){
+  const bar=document.getElementById('sharebar');
+  const story=document.getElementById('story');
+  if(!bar||!story||!('IntersectionObserver' in window)) return;
+  const io=new IntersectionObserver(es=>{
+    const hide = es[0].isIntersecting && window.matchMedia('(max-width:760px)').matches;
+    bar.classList.toggle('sb-hidden', hide);
+  },{threshold:0, rootMargin:'-28% 0px -28% 0px'});
+  io.observe(story);
+})();
