@@ -49,9 +49,10 @@ const DANGER_MAP = [
     note_bn:"মহামারির ধাক্কা সামলে পাঁচ বছরের সেরা অবস্থানে।",
     note_en:"Back to its best position in five years after the pandemic." }
 ];
-/* Bar-chart-only extras (NPL verified, CRAR not verified → excluded
-   from scatter): Ukraine 26.1, Lebanon 23.8, Tunisia 14.7 (national
-   regulators via ADB and Daily Star compilations, late 2025). */
+/* Bar-chart-only extras (NPL only, CRAR not verified → excluded from
+   scatter): Tunisia 14.7 (Central Bank of Tunisia, Mar 2025) and
+   Lebanon ~23.8 (crisis-era estimate, unverified). Ukraine dropped:
+   26.1 was mid-2025 old-methodology; the new EU-aligned basis is ~13%. */
 
 /* ---- SCALE CONVERTER UNITS (all in Tk crore unless noted) ---- */
 const DISTRESSED_TOTAL_CR = 1087000;  /* Tk 10.87 lakh crore, BB FSR end-2025 */

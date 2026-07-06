@@ -85,8 +85,7 @@ const DISC_POS = {
 // Source: national regulators as compiled by the ADB NPL Watch and press analyses.
 const SNAP = [
   {c:"Bangladesh",v:35.7,note:"Sep 2025",bd:true},
-  {c:"Ukraine",v:26.1,note:"at war since 2022"},
-  {c:"Lebanon",v:23.8,note:"prolonged economic crisis"},
+  {c:"Lebanon",v:23.8,note:"crisis-era estimate, unverified"},
   {c:"Tunisia",v:14.7,note:"political and fiscal turmoil"},
   {c:"Sri Lanka",v:12.6,note:"post-default recovery"},
   {c:"Pakistan",v:7.4,note:"after IMF stabilisation"},

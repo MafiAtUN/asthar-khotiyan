@@ -216,6 +216,7 @@ const TR = {
   "Sep 2025":"সেপ্টেম্বর ২০২৫",
   "at war since 2022":"২০২২ থেকে যুদ্ধরত",
   "prolonged economic crisis":"দীর্ঘ অর্থনৈতিক সংকট",
+  "crisis-era estimate, unverified":"সংকটকালীন প্রাক্কলন, অযাচাইকৃত",
   "political and fiscal turmoil":"রাজনৈতিক ও রাজস্ব অস্থিরতা",
   "post-default recovery":"ঋণখেলাপের পর পুনরুদ্ধার",
   "after IMF stabilisation":"আইএমএফ স্থিতিশীলতার পর",
