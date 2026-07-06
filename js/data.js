@@ -177,5 +177,7 @@ const REFERENCES = [
   {cat:"peoples", url:"https://www.nrb.org.np", en:"Nepal Rastra Bank, provisional financial indicators (mid-Aug 2025)", bn:"নেপাল রাষ্ট্র ব্যাংক, প্রাথমিক আর্থিক সূচক (মধ্য-আগস্ট ২০২৫)"},
   {cat:"peoples", url:"https://www.bsp.gov.ph", en:"Bangko Sentral ng Pilipinas, banking indicators (via Philippine News Agency)", bn:"ব্যাংকো সেন্ট্রাল এনগ পিলিপিনাস, ব্যাংকিং সূচক (ফিলিপাইন নিউজ এজেন্সির মাধ্যমে)"},
   {cat:"peoples", url:"https://www.thedailystar.net", en:"White Paper on the Bangladesh economy (Dec 2024): The Daily Star coverage", bn:"বাংলাদেশ অর্থনীতির শ্বেতপত্র (ডিসেম্বর ২০২৪): দ্য ডেইলি স্টার প্রতিবেদন"},
-  {cat:"peoples", url:"https://www.tbsnews.net", en:"White Paper committee findings: The Business Standard coverage", bn:"শ্বেতপত্র কমিটির ফলাফল: দ্য বিজনেস স্ট্যান্ডার্ড প্রতিবেদন"}
+  {cat:"peoples", url:"https://www.tbsnews.net", en:"White Paper committee findings: The Business Standard coverage", bn:"শ্বেতপত্র কমিটির ফলাফল: দ্য বিজনেস স্ট্যান্ডার্ড প্রতিবেদন"},
+  {cat:"peoples", url:"https://bank.gov.ua/en/stability/npl", en:"National Bank of Ukraine, loan portfolio quality (NPLs)", bn:"ন্যাশনাল ব্যাংক অব ইউক্রেন, ঋণ-মান (খেলাপি ঋণ)"},
+  {cat:"peoples", url:"https://www.bct.gov.tn/", en:"Central Bank of Tunisia, banking indicators", bn:"সেন্ট্রাল ব্যাংক অব তিউনিসিয়া, ব্যাংকিং সূচক"}
 ];

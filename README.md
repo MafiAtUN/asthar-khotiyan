@@ -11,7 +11,9 @@ decade of flattered numbers, and up to the highest reported ratio in the world i
 estimates, sets Bangladesh against comparator economies that climbed down their
 own bad-loan mountains, and closes with an event ledger of twenty-one exhibits.
 
-**The people’s edition** adds reader-facing tools: a danger-map scatter (NPL vs
+**The people’s edition** adds reader-facing tools: a geographic world map that
+shades every country by its bad-loan ratio (Bangladesh the single darkest, and
+war or crisis economies flagged yet lighter), a danger-map scatter (NPL vs
 CRAR) where Bangladesh sits alone in the negative-capital corner, the White Paper
 receipts (every figure attributed to the Dec 2024 committee), a family-share
 calculator, a "what could this money have built" converter (Padma Bridges, Dhaka
@@ -110,7 +112,9 @@ asthar-khotiyan/
 │   ├── compare.js      # Snapshot bars + comparator small multiples
 │   ├── ledger.js       # Event ledger cards + click-to-chart + Sources list
 │   ├── danger-map.js   # NPL vs CRAR scatter (reads data-peoples.js)
-│   └── widgets.js      # Receipt, family share, converter, share bar, stat cards
+│   ├── widgets.js      # Receipt, family share, converter, share bar, stat cards
+│   ├── worldmap-data.js# World country outlines (Natural Earth 110m, projected)
+│   └── world-map.js    # Geographic NPL choropleth + war markers + view toggle
 ├── assets/
 │   ├── favicon.svg     # A red disc on bottle green
 │   └── og-cover.png    # 1200×630 Bangla-first social-share image (night-ledger)
