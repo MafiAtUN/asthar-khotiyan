@@ -30,7 +30,9 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&family=Archivo:wght@300;400;500;600&family=Sometype+Mono:wght@400;500;600&family=Tiro+Bangla&family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&family=Archivo:wght@300;400;500;600&family=Sometype+Mono:wght@400;500;600&family=Tiro+Bangla&family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&family=Archivo:wght@300;400;500;600&family=Sometype+Mono:wght@400;500;600&family=Tiro+Bangla&family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&family=Archivo:wght@300;400;500;600&family=Sometype+Mono:wght@400;500;600&family=Tiro+Bangla&family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet" /></noscript>
 <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -368,16 +370,16 @@
 <!-- Load order matters: data.js and data-peoples.js first (globals), then i18n
      (needs the data), then the views. danger-map.js and widgets.js read
      data-peoples.js and re-render on the langchange event, so they load last. -->
-<script src="js/data.js"></script>
-<script src="js/data-peoples.js"></script>
-<script src="js/i18n.js"></script>
-<script src="js/story.js"></script>
-<script src="js/chart.js"></script>
-<script src="js/compare.js"></script>
-<script src="js/ledger.js"></script>
-<script src="js/danger-map.js"></script>
-<script src="js/widgets.js"></script>
-<script src="js/worldmap-data.js"></script>
-<script src="js/world-map.js"></script>
+<script defer src="js/data.js"></script>
+<script defer src="js/data-peoples.js"></script>
+<script defer src="js/i18n.js"></script>
+<script defer src="js/story.js"></script>
+<script defer src="js/chart.js"></script>
+<script defer src="js/compare.js"></script>
+<script defer src="js/ledger.js"></script>
+<script defer src="js/danger-map.js"></script>
+<script defer src="js/widgets.js"></script>
+<script defer src="js/worldmap-data.js"></script>
+<script defer src="js/world-map.js"></script>
 </body>
 </html>
