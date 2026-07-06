@@ -44,8 +44,8 @@ const DANGER_MAP = [
     when:"Mar 2025", src:"IMF Article IV 2025 (NPL 5.3% Mar 2025; CAR 10.4% public / 12.1% private, midpoint shown)",
     note_bn:"কুশন পাতলা, নজরদারিতে আছে; তবু শূন্যের অনেক ওপরে।",
     note_en:"Thin cushion, under watch; still far above zero." },
-  { id:"PH", name:"ফিলিপাইন", en:"Philippines", npl:2.9, crar:16.2,
-    when:"Dec 2025", src:"BSP via Philippine News Agency (NPL lowest since Aug 2020, Dec 2025); CAR 16.2% consolidated, BSP Second Semester 2025 Report on the Philippine Financial System (end-Dec 2025)",
+  { id:"PH", name:"ফিলিপাইন", en:"Philippines", npl:3.08, crar:16.2,
+    when:"Dec 2025", src:"BSP via Philippine News Agency: gross NPL 3.08% (lowest since Aug 2020), Dec 2025; CAR 16.2% consolidated, BSP Report on the Philippine Financial System, Second Semester 2025 (end-Dec 2025)",
     note_bn:"মহামারির ধাক্কা সামলে পাঁচ বছরের সেরা অবস্থানে।",
     note_en:"Back to its best position in five years after the pandemic." }
 ];
